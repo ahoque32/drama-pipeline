@@ -31,6 +31,14 @@ python scripts/breaking_news.py --check-only  # Just check for breaking seeds
 python scripts/daily_summary.py            # Generate daily summary report
 python scripts/cost_tracker.py             # Show daily cost report
 python scripts/telegram_bot.py --send-scripts # Send scripts with inline buttons
+
+# Phase 2 Features
+python scripts/youtube_uploader.py --auth  # Authenticate with YouTube
+python scripts/youtube_uploader.py --upload video.mp4 --title "Title"
+python scripts/retention_watcher.py --report  # Performance tracking
+python scripts/cron_scheduler.py --install    # Install daily schedule
+python scripts/cron_scheduler.py --show       # Show current schedule
+python scripts/error_recovery.py --health     # Check pipeline health
 ```
 
 ## Configuration
@@ -40,6 +48,8 @@ Edit `config.yaml` or set environment variables:
 - `ANTHROPIC_API_KEY` — Claude API key
 - `TELEGRAM_BOT_TOKEN` — Telegram bot token
 - `TELEGRAM_CHAT_ID` — Telegram chat ID for notifications
+- `YOUTUBE_CLIENT_ID` — YouTube OAuth client ID
+- `YOUTUBE_CLIENT_SECRET` — YouTube OAuth client secret
 
 ## Output Structure
 
@@ -53,9 +63,14 @@ Edit `config.yaml` or set environment variables:
 - `handoffs/YYYY-MM-DD/` — Complete video packages
 - `breaking/` — Breaking news fast-track records
 - `costs/YYYY-MM-DD.json` — Daily API cost tracking
+- `uploads/YYYY-MM-DD.json` — YouTube upload records
+- `analytics/` — Performance analytics reports
 - `logs/YYYY-MM-DD.json` — Pipeline execution log
 - `logs/YYYY-MM-DD-summary.json` — Daily summary reports
 - `state/pending_approvals.json` — Pending approval state
+- `state/error_log.json` — Error tracking
+- `state/circuit_breakers.json` — Circuit breaker states
+- `tokens/youtube_tokens.json` — YouTube OAuth tokens
 
 All outputs sync to Google Drive: `Autonomous YouTube/DramaPipeline`
 
@@ -89,6 +104,40 @@ Proper callback handling for approvals:
 - ❌ Kill — Rejects script
 - 🔄 Rewrite — Queues script for rewrite
 
+## Phase 2 Features
+
+### 📺 YouTube Upload API
+OAuth-based video upload:
+- OAuth2 flow with refresh tokens
+- `videos.insert` with resumable upload
+- Metadata builder (title, description, tags)
+- Privacy status control (private/unlisted/public)
+- Upload tracking in `uploads/` directory
+
+### 📈 RetentionWatcher
+YouTube Analytics integration:
+- Views, watch time, retention metrics
+- Engagement rate tracking
+- Video health checks with alerts
+- Performance reports with top performers
+- Telegram-formatted reports
+
+### ⏰ Cron Scheduling
+Automated daily operations:
+- 08:00 EST — Pipeline run
+- 12:00 EST — Retention tracking
+- 22:00 EST — Daily summary
+- Install/remove/manage via CLI
+
+### 🛡️ Error Recovery
+Robust failure handling:
+- Retry logic with exponential backoff
+- Circuit breaker pattern
+- Error logging with severity levels
+- Telegram alerts for critical errors
+- Pipeline health monitoring
+- `@retry` decorator for functions
+
 ## Pipeline Stages
 
 1. **ScoutDrama** — Fetches drama seeds from X/Twitter and Reddit
@@ -97,3 +146,5 @@ Proper callback handling for approvals:
 4. **VoiceForge** — Generates AI voiceover
 5. **AssetHunter** — Downloads video assets
 6. **HandoffAssembler** — Packages complete video project
+7. **YouTubeUploader** — Uploads to YouTube
+8. **RetentionWatcher** — Tracks performance metrics
