@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2026-02-14T21:35:22.168557Z",
+    "module": "ScoutDrama",
+    "action": "scan",
+    "status": "success",
+    "details": {
+      "seeds_found": 0,
+      "seeds_filtered": 0,
+      "duration_sec": 0.000301
+    }
+  }
+]

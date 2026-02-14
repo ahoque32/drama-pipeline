@@ -1,0 +1,12 @@
+{
+  "date": "2026-02-14",
+  "scan_timestamp": "2026-02-14T21:35:22.167604Z",
+  "source_stats": {
+    "x_tweets_fetched": 0,
+    "reddit_posts_fetched": 0,
+    "rss_items_fetched": 0
+  },
+  "seeds": [],
+  "filtered_count": 0,
+  "scan_duration_sec": 0.0
+}
