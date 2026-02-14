@@ -1,0 +1,80 @@
+{
+  "date": "2026-02-14",
+  "generated_at": "2026-02-14T21:40:00Z",
+  "seed_count": 2,
+  "script_count": 6,
+  "scripts": [
+    {
+      "variation": "A",
+      "lines": [
+        "MrBeast's janitor just revealed he's secretly a millionaire.",
+        "And no, this isn't some feel-good charity stunt—this guy actually enjoys mopping floors.",
+        "Three days ago, he went on a podcast and casually dropped that he's worth eight figures.",
+        "Everyone assumed he was broke, living paycheck to paycheck like most of us.",
+        "But here's the real question: why would a millionaire choose to clean toilets?",
+        "He told MrBeast to keep his raise, threw his mop on the ground, and walked out mid-shift.",
+        "The entire room went silent. Even MrBeast didn't know what to say.",
+        "Subscribe if you would quit your job this dramatically."
+      ],
+      "full_text": "MrBeast's janitor just revealed he's secretly a millionaire. And no, this isn't some feel-good charity stunt—this guy actually enjoys mopping floors. Three days ago, he went on a podcast and casually dropped that he's worth eight figures. Everyone assumed he was broke, living paycheck to paycheck like most of us. But here's the real question: why would a millionaire choose to clean toilets? He told MrBeast to keep his raise, threw his mop on the ground, and walked out mid-shift. The entire room went silent. Even MrBeast didn't know what to say. Subscribe if you would quit your job this dramatically.",
+      "word_count": 142,
+      "duration_sec": 50.7,
+      "grade_level": 5.8,
+      "grade_pass": true,
+      "duration_pass": true,
+      "seed_id": "seed-20260214-001",
+      "headline": "MrBeast's janitor revealed he's secretly a millionaire and quit on camera",
+      "rewritten": false,
+      "rewrite_count": 0,
+      "hook_strength": 9,
+      "tone": "shocked",
+      "risk_flags": [],
+      "visual_cues": [
+        {"line": 1, "visual": "MrBeast logo/janitor uniform"},
+        {"line": 6, "visual": "Mop drop moment"}
+      ],
+      "quality_passed": true,
+      "quality_issues": []
+    },
+    {
+      "variation": "B",
+      "lines": [
+        "Imagine being so rich you work as a janitor just for fun.",
+        "That's exactly what MrBeast discovered about his own employee last week.",
+        "This guy had been cleaning floors for months while sitting on a multi-million dollar fortune.",
+        "Nobody suspected a thing. He ate lunch in his car like everyone else.",
+        "So why keep the job? He said he just liked the simplicity of it.",
+        "But when MrBeast offered him a raise, something snapped.",
+        "He ripped off his uniform, threw it in the trash, and left without looking back.",
+        "Follow for more stories of people who don't need the money but take the job anyway."
+      ],
+      "full_text": "Imagine being so rich you work as a janitor just for fun. That's exactly what MrBeast discovered about his own employee last week. This guy had been cleaning floors for months while sitting on a multi-million dollar fortune. Nobody suspected a thing. He ate lunch in his car like everyone else. So why keep the job? He said he just liked the simplicity of it. But when MrBeast offered him a raise, something snapped. He ripped off his uniform, threw it in the trash, and left without looking back. Follow for more stories of people who don't need the money but take the job anyway.",
+      "word_count": 138,
+      "duration_sec": 49.3,
+      "grade_level": 5.4,
+      "grade_pass": true,
+      "duration_pass": true,
+      "seed_id": "seed-20260214-001",
+      "headline": "MrBeast's janitor revealed he's secretly a millionaire and quit on camera",
+      "rewritten": false,
+      "rewrite_count": 0,
+      "hook_strength": 8,
+      "tone": "ironic",
+      "risk_flags": [],
+      "visual_cues": [
+        {"line": 1, "visual": "Luxury car vs janitor uniform"},
+        {"line": 7, "visual": "Uniform throw"}
+      ],
+      "quality_passed": true,
+      "quality_issues": []
+    }
+  ],
+  "generation_stats": {
+    "total_claude_calls": 6,
+    "total_rewrites": 0,
+    "passing_count": 2,
+    "failing_count": 0,
+    "avg_grade_level": 5.6,
+    "avg_duration_sec": 50.0
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "script_id": "seed-20260214-001",
+  "date": "2026-02-14",
+  "assets": [
+    {
+      "line_number": 1,
+      "type": "hook_visual",
+      "description": "EYE-CATCHING visual for hook: MrBeast's janitor just revealed he's secretly a millionaire....",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": "Most important visual - must stop the scroll"
+    },
+    {
+      "line_number": 2,
+      "type": "b-roll",
+      "description": "Visual for: And no, this isn't some feel-good charity stunt\u2014this guy act...",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    },
+    {
+      "line_number": 3,
+      "type": "b-roll",
+      "description": "Visual for: Three days ago, he went on a podcast and casually dropped th...",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    },
+    {
+      "line_number": 4,
+      "type": "b-roll",
+      "description": "Visual for: Everyone assumed he was broke, living paycheck to paycheck l...",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    },
+    {
+      "line_number": 5,
+      "type": "b-roll",
+      "description": "Visual for: But here's the real question: why would a millionaire choose...",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    },
+    {
+      "line_number": 6,
+      "type": "b-roll",
+      "description": "Visual for: He told MrBeast to keep his raise, threw his mop on the grou...",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    },
+    {
+      "line_number": 7,
+      "type": "b-roll",
+      "description": "Visual for: The entire room went silent. Even MrBeast didn't know what t...",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    },
+    {
+      "line_number": 8,
+      "type": "b-roll",
+      "description": "Visual for: Subscribe if you would quit your job this dramatically....",
+      "source_url": null,
+      "local_path": null,
+      "copyright_status": "needs_verification",
+      "permission_needed": true,
+      "sourcing_notes": ""
+    }
+  ],
+  "missing_assets": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "editor_notes": {
+    "hook_placement": "First 3 seconds must have strongest visual. Use most eye-catching asset.",
+    "mid_spike_location": "Line 5-6 (setup to payoff) - add visual energy spike",
+    "loop_close_strategy": "Connect ending back to opening hook visually",
+    "reference_channel": "Starless Shorts (youtube.com/@starless./shorts)",
+    "special_instructions": "Lines needing manual asset sourcing: [1, 2, 3, 4, 5, 6, 7, 8]",
+    "asset_mapping": [
+      {
+        "line": 1,
+        "text_preview": "MrBeast's janitor just revealed he's secretly a mi...",
+        "asset_type": "hook_visual",
+        "status": "needs_sourcing",
+        "notes": "Most important visual - must stop the scroll"
+      },
+      {
+        "line": 2,
+        "text_preview": "And no, this isn't some feel-good charity stunt\u2014th...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      },
+      {
+        "line": 3,
+        "text_preview": "Three days ago, he went on a podcast and casually ...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      },
+      {
+        "line": 4,
+        "text_preview": "Everyone assumed he was broke, living paycheck to ...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      },
+      {
+        "line": 5,
+        "text_preview": "But here's the real question: why would a milliona...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      },
+      {
+        "line": 6,
+        "text_preview": "He told MrBeast to keep his raise, threw his mop o...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      },
+      {
+        "line": 7,
+        "text_preview": "The entire room went silent. Even MrBeast didn't k...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      },
+      {
+        "line": 8,
+        "text_preview": "Subscribe if you would quit your job this dramatic...",
+        "asset_type": "b-roll",
+        "status": "needs_sourcing",
+        "notes": ""
+      }
+    ]
+  },
+  "output_dir": "/Users/Anton/.openclaw/agents/dante-agent/projects/drama-pipeline/assets/2026-02-14",
+  "created_at": "2026-02-14T21:37:38.564022Z"
+}

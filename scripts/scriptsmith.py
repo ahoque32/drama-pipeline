@@ -85,12 +85,12 @@ Return ONLY a JSON object:
         
         # Script settings
         script_config = self.config.get('script', {})
-        self.target_word_count = script_config.get('target_word_count', [130, 150])
-        self.target_duration = script_config.get('target_duration_sec', [45, 50])
-        self.target_grade = script_config.get('target_grade_level', [5.0, 6.0])
-        self.max_rewrites = script_config.get('max_rewrites', 2)
-        self.variations_per_seed = script_config.get('variations_per_seed', 3)
-        self.top_seeds = script_config.get('top_seeds_to_process', 3)
+        self.target_word_count = [130, 150]
+        self.target_duration = [45, 50]
+        self.target_grade = [5.0, 6.0]
+        self.max_rewrites = 2
+        self.variations_per_seed = 3
+        self.top_seeds = 3
         
         # API key
         self.api_key = get_anthropic_api_key()

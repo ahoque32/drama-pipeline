@@ -1,0 +1,65 @@
+{
+  "hook_placement": "First 3 seconds must have strongest visual. Use most eye-catching asset.",
+  "mid_spike_location": "Line 5-6 (setup to payoff) - add visual energy spike",
+  "loop_close_strategy": "Connect ending back to opening hook visually",
+  "reference_channel": "Starless Shorts (youtube.com/@starless./shorts)",
+  "special_instructions": "Voiceover pending - check RECORDING.md in audio folder. Missing assets for lines: [1, 2, 3, 4, 5, 6, 7, 8]. ",
+  "line_notes": [
+    {
+      "line": 1,
+      "text_preview": "MrBeast's janitor just revealed he's secretly a millionaire.",
+      "timing": "~2.9s",
+      "asset_type": "hook_visual",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 2,
+      "text_preview": "And no, this isn't some feel-good charity stunt\u2014this guy act...",
+      "timing": "~4.6s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 3,
+      "text_preview": "Three days ago, he went on a podcast and casually dropped th...",
+      "timing": "~5.7s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 4,
+      "text_preview": "Everyone assumed he was broke, living paycheck to paycheck l...",
+      "timing": "~4.6s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 5,
+      "text_preview": "But here's the real question: why would a millionaire choose...",
+      "timing": "~4.6s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 6,
+      "text_preview": "He told MrBeast to keep his raise, threw his mop on the grou...",
+      "timing": "~6.1s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 7,
+      "text_preview": "The entire room went silent. Even MrBeast didn't know what t...",
+      "timing": "~4.3s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    },
+    {
+      "line": 8,
+      "text_preview": "Subscribe if you would quit your job this dramatically.",
+      "timing": "~3.2s",
+      "asset_type": "b-roll",
+      "asset_status": "needs_sourcing"
+    }
+  ]
+}

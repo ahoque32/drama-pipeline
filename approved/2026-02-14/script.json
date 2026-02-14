@@ -1,0 +1,42 @@
+{
+  "script": {
+    "variation": "A",
+    "lines": [
+      "MrBeast's janitor just revealed he's secretly a millionaire.",
+      "And no, this isn't some feel-good charity stunt\u2014this guy actually enjoys mopping floors.",
+      "Three days ago, he went on a podcast and casually dropped that he's worth eight figures.",
+      "Everyone assumed he was broke, living paycheck to paycheck like most of us.",
+      "But here's the real question: why would a millionaire choose to clean toilets?",
+      "He told MrBeast to keep his raise, threw his mop on the ground, and walked out mid-shift.",
+      "The entire room went silent. Even MrBeast didn't know what to say.",
+      "Subscribe if you would quit your job this dramatically."
+    ],
+    "full_text": "MrBeast's janitor just revealed he's secretly a millionaire. And no, this isn't some feel-good charity stunt\u2014this guy actually enjoys mopping floors. Three days ago, he went on a podcast and casually dropped that he's worth eight figures. Everyone assumed he was broke, living paycheck to paycheck like most of us. But here's the real question: why would a millionaire choose to clean toilets? He told MrBeast to keep his raise, threw his mop on the ground, and walked out mid-shift. The entire room went silent. Even MrBeast didn't know what to say. Subscribe if you would quit your job this dramatically.",
+    "word_count": 142,
+    "duration_sec": 50.7,
+    "grade_level": 5.8,
+    "grade_pass": true,
+    "duration_pass": true,
+    "seed_id": "seed-20260214-001",
+    "headline": "MrBeast's janitor revealed he's secretly a millionaire and quit on camera",
+    "rewritten": false,
+    "rewrite_count": 0,
+    "hook_strength": 9,
+    "tone": "shocked",
+    "risk_flags": [],
+    "visual_cues": [
+      {
+        "line": 1,
+        "visual": "MrBeast logo/janitor uniform"
+      },
+      {
+        "line": 6,
+        "visual": "Mop drop moment"
+      }
+    ],
+    "quality_passed": true,
+    "quality_issues": []
+  },
+  "approved_at": "2026-02-14T21:36:46.362525Z",
+  "approved_by": "manual"
+}

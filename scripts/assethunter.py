@@ -34,7 +34,13 @@ class AssetHunter:
         if not approved_date_dir.exists():
             return None
         
-        # Find script
+        # Find script - check root first, then subdirs
+        script_file = approved_date_dir / "script.json"
+        if script_file.exists():
+            with open(script_file) as f:
+                return json.load(f)
+        
+        # Find in subdirs
         for subdir in approved_date_dir.iterdir():
             if subdir.is_dir():
                 script_file = subdir / "script.json"

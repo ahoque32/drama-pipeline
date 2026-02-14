@@ -39,14 +39,20 @@ class VoiceForge:
             print(f"[VoiceForge] No approved scripts for {date_str}")
             return None
         
-        # Find script
+        # Find script - check subdirs first, then root
         if script_id:
             script_file = approved_date_dir / script_id / "script.json"
             if script_file.exists():
                 with open(script_file) as f:
                     return json.load(f)
         
-        # Find first approved script
+        # Check for script.json directly in date dir
+        script_file = approved_date_dir / "script.json"
+        if script_file.exists():
+            with open(script_file) as f:
+                return json.load(f)
+        
+        # Find first approved script in subdirs
         for subdir in approved_date_dir.iterdir():
             if subdir.is_dir():
                 script_file = subdir / "script.json"

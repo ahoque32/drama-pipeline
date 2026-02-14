@@ -37,6 +37,13 @@ class HandoffAssembler:
         if not approved_date_dir.exists():
             return None
         
+        # Check root first
+        script_file = approved_date_dir / "script.json"
+        if script_file.exists():
+            with open(script_file) as f:
+                return json.load(f)
+        
+        # Check subdirs
         for subdir in approved_date_dir.iterdir():
             if subdir.is_dir():
                 script_file = subdir / "script.json"

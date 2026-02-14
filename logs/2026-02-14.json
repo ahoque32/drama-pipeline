@@ -9,5 +9,54 @@
       "seeds_filtered": 0,
       "duration_sec": 0.000301
     }
+  },
+  {
+    "timestamp": "2026-02-14T21:36:16.815947Z",
+    "module": "ScriptSmith",
+    "action": "generate",
+    "status": "success",
+    "details": {
+      "scripts_generated": 0,
+      "scripts_passing": 0,
+      "total_rewrites": 0,
+      "duration_sec": 1.029975
+    }
+  },
+  {
+    "timestamp": "2026-02-14T21:37:34.453848Z",
+    "module": "VoiceForge",
+    "action": "generate",
+    "status": "pending",
+    "details": {
+      "script_id": "seed-20260214-001",
+      "segments": 8,
+      "validation": {
+        "status": "pending_manual_recording",
+        "segments_created": 8,
+        "message": "Audio files need to be recorded via Crayo AI"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-14T21:37:38.564684Z",
+    "module": "AssetHunter",
+    "action": "hunt",
+    "status": "success",
+    "details": {
+      "script_id": "seed-20260214-001",
+      "total_assets": 8,
+      "missing_assets": 8
+    }
+  },
+  {
+    "timestamp": "2026-02-14T21:37:42.573651Z",
+    "module": "HandoffAssembler",
+    "action": "assemble",
+    "status": "success",
+    "details": {
+      "handoff_id": "handoff-2026-02-14-001",
+      "has_voiceover": false,
+      "asset_count": 0
+    }
   }
 ]

@@ -1,0 +1,111 @@
+{
+  "handoff_id": "handoff-2026-02-14-001",
+  "content_id": "drama-2026-02-14-001",
+  "created_at": "2026-02-14T21:37:42.480411Z",
+  "script": {
+    "text": "MrBeast's janitor just revealed he's secretly a millionaire.\nAnd no, this isn't some feel-good charity stunt\u2014this guy actually enjoys mopping floors.\nThree days ago, he went on a podcast and casually dropped that he's worth eight figures.\nEveryone assumed he was broke, living paycheck to paycheck like most of us.\nBut here's the real question: why would a millionaire choose to clean toilets?\nHe told MrBeast to keep his raise, threw his mop on the ground, and walked out mid-shift.\nThe entire room went silent. Even MrBeast didn't know what to say.\nSubscribe if you would quit your job this dramatically.",
+    "lines": [
+      "MrBeast's janitor just revealed he's secretly a millionaire.",
+      "And no, this isn't some feel-good charity stunt\u2014this guy actually enjoys mopping floors.",
+      "Three days ago, he went on a podcast and casually dropped that he's worth eight figures.",
+      "Everyone assumed he was broke, living paycheck to paycheck like most of us.",
+      "But here's the real question: why would a millionaire choose to clean toilets?",
+      "He told MrBeast to keep his raise, threw his mop on the ground, and walked out mid-shift.",
+      "The entire room went silent. Even MrBeast didn't know what to say.",
+      "Subscribe if you would quit your job this dramatically."
+    ],
+    "duration_sec": 50.7,
+    "tone": "shocked",
+    "word_count": 142
+  },
+  "voiceover": {
+    "combined_path": null,
+    "segment_paths": [],
+    "voice_id": "DanDan",
+    "duration_sec": 50.7
+  },
+  "assets": {
+    "clips": [],
+    "missing": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "editor_notes": {
+    "hook_placement": "First 3 seconds must have strongest visual. Use most eye-catching asset.",
+    "mid_spike_location": "Line 5-6 (setup to payoff) - add visual energy spike",
+    "loop_close_strategy": "Connect ending back to opening hook visually",
+    "reference_channel": "Starless Shorts (youtube.com/@starless./shorts)",
+    "special_instructions": "Voiceover pending - check RECORDING.md in audio folder. Missing assets for lines: [1, 2, 3, 4, 5, 6, 7, 8]. ",
+    "line_notes": [
+      {
+        "line": 1,
+        "text_preview": "MrBeast's janitor just revealed he's secretly a millionaire.",
+        "timing": "~2.9s",
+        "asset_type": "hook_visual",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 2,
+        "text_preview": "And no, this isn't some feel-good charity stunt\u2014this guy act...",
+        "timing": "~4.6s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 3,
+        "text_preview": "Three days ago, he went on a podcast and casually dropped th...",
+        "timing": "~5.7s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 4,
+        "text_preview": "Everyone assumed he was broke, living paycheck to paycheck l...",
+        "timing": "~4.6s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 5,
+        "text_preview": "But here's the real question: why would a millionaire choose...",
+        "timing": "~4.6s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 6,
+        "text_preview": "He told MrBeast to keep his raise, threw his mop on the grou...",
+        "timing": "~6.1s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 7,
+        "text_preview": "The entire room went silent. Even MrBeast didn't know what t...",
+        "timing": "~4.3s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      },
+      {
+        "line": 8,
+        "text_preview": "Subscribe if you would quit your job this dramatically.",
+        "timing": "~3.2s",
+        "asset_type": "b-roll",
+        "asset_status": "needs_sourcing"
+      }
+    ]
+  },
+  "quality_targets": {
+    "max_dead_air_sec": 0.3,
+    "retention_target_pct": 90,
+    "first_frame_hook": true,
+    "caption_required": true
+  }
+}
