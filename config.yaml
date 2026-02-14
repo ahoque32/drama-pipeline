@@ -1,0 +1,62 @@
+# Drama Pipeline Configuration
+
+# API Keys (can also use env vars)
+x_api:
+  bearer_token: "${X_BEARER_TOKEN}"
+
+anthropic:
+  api_key: "${ANTHROPIC_API_KEY}"
+
+# Google Drive
+google_drive:
+  folder_name: "Autonomous YouTube/DramaPipeline"
+  gog_account: "admin@renderwise.net"
+
+# Sources to monitor
+sources:
+  x:
+    - handle: "@kirawontmiss"
+      user_id: "1471414739880189955"
+      priority: 0
+    - handle: "@FearedBuck"
+      user_id: "1594871021978652673"
+      priority: 0
+  
+  reddit:
+    - subreddit: "entertainment"
+      priority: 0
+    - subreddit: "popculture"
+      priority: 0
+    - subreddit: "OutOfTheLoop"
+      priority: 1
+    - subreddit: "internetdrama"
+      priority: 1
+
+# Thresholds
+thresholds:
+  min_x_engagement: 100
+  min_reddit_score: 500
+  
+# Scoring weights
+scoring:
+  conflict_weight: 0.3
+  viral_weight: 0.4
+  time_weight: 0.3
+
+# Script generation
+script:
+  target_word_count: [130, 150]
+  target_duration_sec: [45, 50]
+  target_grade_level: [5.0, 6.0]
+  max_rewrites: 2
+  variations_per_seed: 3
+  top_seeds_to_process: 3
+
+# Validation gate
+validation:
+  required_gates:
+    - proof_of_concept
+    - emotional_trigger_identified
+    - visual_appeal
+    - broad_audience
+    - story_extractable
