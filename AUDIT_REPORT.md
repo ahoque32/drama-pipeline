@@ -469,9 +469,9 @@ avg_retention = (sum(v['retention']['retention_percentage'] for v in all_videos)
    - Script format is compatible with Telegram message formatting
    - Inline keyboard structure is correct
 
-4. **Approval → VoiceForge + AssetHunter** ⚠️ PARTIAL
-   - **Issue:** Breaking news auto-approval triggers downstream modules with `--breaking` flag that isn't defined in those modules
-   - Fix: Add `--breaking` argument to voiceforge.py, assethunter.py, handoff_assembler.py
+4. **Approval → VoiceForge + AssetHunter** ✅ PASS (FIXED)
+   - ~~Issue: Breaking news auto-approval triggers downstream modules with `--breaking` flag that isn't defined in those modules~~
+   - Fixed: Added `--breaking` argument to voiceforge.py, assethunter.py, handoff_assembler.py
 
 5. **HandoffAssembler → YouTubeUploader** ✅ PASS
    - Handoff package format is compatible with uploader expectations
@@ -507,9 +507,9 @@ avg_retention = (sum(v['retention']['retention_percentage'] for v in all_videos)
 
 | Module | --date | --script-id | --breaking |
 |--------|--------|-------------|------------|
-| voiceforge.py | ✅ | ✅ | ❌ MISSING |
-| assethunter.py | ✅ | ❌ | ❌ MISSING |
-| handoff_assembler.py | ✅ | ❌ | ❌ MISSING |
+| voiceforge.py | ✅ | ✅ | ✅ FIXED |
+| assethunter.py | ✅ | ❌ | ✅ FIXED |
+| handoff_assembler.py | ✅ | ❌ | ✅ FIXED |
 
 ---
 
@@ -557,16 +557,18 @@ avg_retention = (sum(v['retention']['retention_percentage'] for v in all_videos)
 
 ## Fixes Applied
 
-The following fixes have been applied:
+The following fixes have been applied and committed:
 
-1. ✅ Fixed Claude model name in scriptsmith.py
-2. ✅ Fixed Claude model name in breaking_news.py
+1. ✅ Fixed Claude model name in scriptsmith.py (claude-3-sonnet-20240229)
+2. ✅ Fixed Claude model name in breaking_news.py (claude-3-sonnet-20240229)
 3. ✅ Added `--breaking` argument to voiceforge.py
 4. ✅ Added `--breaking` argument to assethunter.py
 5. ✅ Added `--breaking` argument to handoff_assembler.py
-6. ✅ Fixed `get_anthropic_api_key()` in utils.py
+6. ✅ Fixed `get_anthropic_api_key()` in utils.py to handle empty files
 7. ✅ Added missing urllib imports to retention_watcher.py
-8. ✅ Fixed division by zero in daily_summary.py
+8. ✅ Fixed cost_tracker alert file path (using state_dir)
+
+**Git Commit:** f340318 - "Audit fixes: Claude model name, CLI args, API key handling, urllib imports"
 
 ---
 
