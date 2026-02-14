@@ -58,5 +58,18 @@
       "has_voiceover": false,
       "asset_count": 0
     }
+  },
+  {
+    "timestamp": "2026-02-14T21:42:51.846773Z",
+    "module": "DailySummary",
+    "action": "generate",
+    "status": "success",
+    "details": {
+      "date": "2026-02-14",
+      "seeds": 2,
+      "scripts_passing": 2,
+      "approved": 0,
+      "cost": 0.0
+    }
   }
 ]

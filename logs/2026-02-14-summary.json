@@ -1,0 +1,42 @@
+{
+  "date": "2026-02-14",
+  "generated_at": "2026-02-14T21:42:51.846555Z",
+  "seeds": {
+    "count": 2,
+    "sources": {
+      "@kirawontmiss": 1,
+      "@FearedBuck": 1
+    },
+    "top_priority": 8.2,
+    "scan_duration": 3.5
+  },
+  "scripts": {
+    "generated": 6,
+    "passing": 2,
+    "failing": 0,
+    "avg_grade": 5.6,
+    "avg_duration": 50.0,
+    "rewrites": 0,
+    "claude_calls": 6
+  },
+  "approved": {
+    "count": 0,
+    "breaking": 0,
+    "manual": 0
+  },
+  "handoffs": {
+    "count": 2
+  },
+  "cost": {
+    "date": "2026-02-14",
+    "total_cost": 0.0,
+    "claude_calls": 0,
+    "operations": {},
+    "budget_status": "under"
+  },
+  "pipeline": {
+    "total_runs": 0,
+    "successful_runs": 0,
+    "success_rate": 0
+  }
+}
