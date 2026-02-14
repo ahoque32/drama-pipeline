@@ -153,7 +153,7 @@ Return ONLY the JSON object."""
         }
         
         data = {
-            "model": "claude-sonnet-4-20250514",
+            "model": "claude-3-sonnet-20240229",
             "max_tokens": max_tokens,
             "system": self.BREAKING_PROMPT,
             "messages": [{"role": "user", "content": prompt}]

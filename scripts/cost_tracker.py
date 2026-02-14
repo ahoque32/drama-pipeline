@@ -34,6 +34,8 @@ class CostTracker:
         self.pipeline_dir = get_pipeline_dir()
         self.costs_dir = self.pipeline_dir / "costs"
         self.costs_dir.mkdir(exist_ok=True)
+        self.state_dir = self.pipeline_dir / "state"
+        self.state_dir.mkdir(exist_ok=True)
         
         # Telegram config for alerts
         self.telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
@@ -171,7 +173,7 @@ class CostTracker:
             return
         
         # Only alert once per day (check if already alerted)
-        alert_file = self.costs_dir / f"{date_str}-alert-sent"
+        alert_file = self.state_dir / f"{date_str}-alert-sent"
         if alert_file.exists():
             return
         

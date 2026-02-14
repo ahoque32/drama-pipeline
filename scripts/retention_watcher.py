@@ -15,6 +15,8 @@ import logging
 import os
 import re
 import sys
+import urllib.request
+import urllib.error
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path

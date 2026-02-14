@@ -164,7 +164,7 @@ Generate the 8-line script following the formula exactly."""
         }
         
         data = {
-            "model": "claude-sonnet-4-20250514",
+            "model": "claude-3-sonnet-20240229",
             "max_tokens": max_tokens,
             "system": self.SYSTEM_PROMPT,
             "messages": [{"role": "user", "content": prompt}]

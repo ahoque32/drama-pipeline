@@ -199,7 +199,7 @@ def log_operation(module, action, status, details=None):
 def get_anthropic_api_key():
     """Resolve Anthropic API key from various sources."""
     # Env var first
-    key = os.environ.get("ANTHROPIC_API_KEY", "")
+    key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if key:
         return key
     
@@ -210,15 +210,19 @@ def get_anthropic_api_key():
     ]
     for p in key_paths:
         if p.exists():
-            return p.read_text().strip()
+            content = p.read_text().strip()
+            if content:  # Only return if file has content
+                return content
     
     # OpenClaw config
     config_path = Path.home() / ".openclaw/openclaw.json"
     if config_path.exists():
         try:
             config = json.loads(config_path.read_text())
-            return (config.get("models", {}).get("providers", {}).get("anthropic", {}).get("apiKey", "")
+            key = (config.get("models", {}).get("providers", {}).get("anthropic", {}).get("apiKey", "")
                    or config.get("providers", {}).get("anthropic", {}).get("apiKey", ""))
+            if key:
+                return key
         except:
             pass
     

@@ -327,6 +327,7 @@ def main():
     parser = argparse.ArgumentParser(description='VoiceForge - Voiceover Generation')
     parser.add_argument('--date', help='Date to process (YYYY-MM-DD)')
     parser.add_argument('--script-id', help='Specific script ID to process')
+    parser.add_argument('--breaking', help='Breaking news ID (for internal use)')
     parser.add_argument('--combine', help='Combine existing segments in directory')
     
     args = parser.parse_args()

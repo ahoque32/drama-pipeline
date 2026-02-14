@@ -337,6 +337,7 @@ def main():
     parser = argparse.ArgumentParser(description='AssetHunter - Visual Asset Sourcing')
     parser.add_argument('--date', help='Date to process (YYYY-MM-DD)')
     parser.add_argument('--script-id', help='Specific script ID to process')
+    parser.add_argument('--breaking', help='Breaking news ID (for internal use)')
     
     args = parser.parse_args()
     
