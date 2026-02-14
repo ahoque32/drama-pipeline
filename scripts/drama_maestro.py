@@ -101,32 +101,43 @@ class DramaMaestro:
         return passing
     
     def send_telegram_scripts(self, scripts: List[Dict], date_str: str) -> bool:
-        """Send scripts to Ahawk via Telegram for approval."""
+        """Send scripts to Ahawk via Telegram for approval with inline buttons."""
         if not self.telegram_token or not self.telegram_chat_id:
             print("[Maestro] Warning: Telegram not configured, skipping approval flow")
             # Save scripts for manual review
             self._save_manual_review(scripts, date_str)
             return True
         
-        print(f"[Maestro] Sending {len(scripts)} scripts to Telegram...")
+        print(f"[Maestro] Sending {len(scripts)} scripts to Telegram with inline buttons...")
         
         # Send header message
         header = f"🎬 <b>DRAMA SCRIPTS — {date_str}</b>\n"
         header += f"{'='*40}\n"
         header += f"{len(scripts)} scripts ready for review:\n\n"
-        header += "Reply with:\n"
-        header += "• <code>approve N</code> — Approve script #N\n"
-        header += "• <code>reject N</code> — Reject script #N\n"
-        header += "• <code>rewrite N: notes</code> — Request rewrite\n"
+        header += "Use the buttons below each script to:\n"
+        header += "✅ Approve | ❌ Kill | ✏️ Edit | 🔄 Rewrite\n"
         
         self._send_telegram_message(header)
         
-        # Send each script
-        for i, script in enumerate(scripts[:5], 1):  # Top 5
-            msg = self._format_script_message(script, i)
-            self._send_telegram_message(msg)
-        
-        return True
+        # Use TelegramBot to send scripts with inline buttons
+        try:
+            from telegram_bot import TelegramBot
+            bot = TelegramBot()
+            
+            for i, script in enumerate(scripts[:5], 1):  # Top 5
+                bot.send_script_with_buttons(script, date_str, i)
+            
+            return True
+        except Exception as e:
+            print(f"[Maestro] Error using TelegramBot: {e}")
+            print("[Maestro] Falling back to plain text messages...")
+            
+            # Fallback: send plain text
+            for i, script in enumerate(scripts[:5], 1):
+                msg = self._format_script_message(script, i)
+                self._send_telegram_message(msg)
+            
+            return True
     
     def _format_script_message(self, script: Dict, index: int) -> str:
         """Format a single script for Telegram."""
