@@ -299,7 +299,28 @@ class DramaMaestro:
             print(f"[Maestro] HandoffAssembler failed: {e}")
             return False
     
-    def run_pipeline(self, date_str: Optional[str] = None, skip_scout: bool = False) -> Dict:
+    def check_breaking_news(self, date_str: str) -> bool:
+        """Check for and process breaking news before normal pipeline."""
+        print(f"[Maestro] Checking for breaking news...")
+        
+        try:
+            result = subprocess.run(
+                [sys.executable, str(self.pipeline_dir / "scripts" / "breaking_news.py"), "--date", date_str],
+                capture_output=True, text=True, timeout=300
+            )
+            print(result.stdout)
+            if result.stderr:
+                print(result.stderr)
+            
+            # Check if any breaking news was processed
+            if "⚡ BREAKING NEWS COMPLETE" in result.stdout and "✅ PROCESSED" in result.stdout:
+                return True
+            return False
+        except Exception as e:
+            print(f"[Maestro] Breaking news check failed: {e}")
+            return False
+    
+    def run_pipeline(self, date_str: Optional[str] = None, skip_scout: bool = False, skip_breaking: bool = False) -> Dict:
         """Run full pipeline."""
         if date_str is None:
             date_str = datetime.now().strftime("%Y-%m-%d")
@@ -313,6 +334,16 @@ class DramaMaestro:
             "started_at": datetime.utcnow().isoformat() + "Z",
             "stages": {}
         }
+        
+        # Stage 0: Check for breaking news (before normal pipeline)
+        if not skip_breaking:
+            breaking_processed = self.check_breaking_news(date_str)
+            results['stages']['breaking_news'] = 'processed' if breaking_processed else 'none'
+            if breaking_processed:
+                print("[Maestro] ⚡ Breaking news processed - continuing with normal pipeline")
+        else:
+            print("[Maestro] Skipping breaking news check ( --skip-breaking )")
+            results['stages']['breaking_news'] = 'skipped'
         
         # Stage 1: ScoutDrama
         if not skip_scout:
@@ -412,6 +443,8 @@ def main():
     parser.add_argument('--approve-script', help='Approve a script by ID')
     parser.add_argument('--daily-summary', action='store_true', help='Send daily summary')
     
+    parser.add_argument('--skip-breaking', action='store_true', help='Skip breaking news check')
+    
     args = parser.parse_args()
     
     date_str = args.date or datetime.now().strftime("%Y-%m-%d")
@@ -426,7 +459,7 @@ def main():
         return 0 if success else 1
     
     # Run full pipeline
-    results = maestro.run_pipeline(date_str, skip_scout=args.skip_scout)
+    results = maestro.run_pipeline(date_str, skip_scout=args.skip_scout, skip_breaking=args.skip_breaking)
     
     # Check if all stages succeeded
     all_success = all(s == 'success' or s == 'skipped' or s == 'sent' 
