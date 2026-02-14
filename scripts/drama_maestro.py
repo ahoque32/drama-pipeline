@@ -242,22 +242,62 @@ class DramaMaestro:
         print(f"[Maestro] Script approved and saved to: {approved_date_dir}")
         
         # Trigger next stages
-        self._trigger_voiceforge(approved_date_dir)
-        self._trigger_assethunter(approved_date_dir)
+        self._trigger_voiceforge(approved_date_dir, date_str)
+        self._trigger_assethunter(approved_date_dir, date_str)
+        self._trigger_handoff(date_str)
         
         return True
     
-    def _trigger_voiceforge(self, approved_dir: Path):
+    def _trigger_voiceforge(self, approved_dir: Path, date_str: str):
         """Trigger VoiceForge for approved script."""
         print(f"[Maestro] Triggering VoiceForge for {approved_dir}...")
-        # Placeholder - VoiceForge module will be implemented in Phase 1B
-        print(f"[Maestro] VoiceForge placeholder - would generate voiceover here")
+        
+        try:
+            result = subprocess.run(
+                [sys.executable, str(self.pipeline_dir / "scripts" / "voiceforge.py"), "--date", date_str],
+                capture_output=True, text=True, timeout=180
+            )
+            print(result.stdout)
+            if result.stderr:
+                print(result.stderr)
+            return result.returncode == 0
+        except Exception as e:
+            print(f"[Maestro] VoiceForge failed: {e}")
+            return False
     
-    def _trigger_assethunter(self, approved_dir: Path):
+    def _trigger_assethunter(self, approved_dir: Path, date_str: str):
         """Trigger AssetHunter for approved script."""
         print(f"[Maestro] Triggering AssetHunter for {approved_dir}...")
-        # Placeholder - AssetHunter module will be implemented in Phase 1B
-        print(f"[Maestro] AssetHunter placeholder - would source assets here")
+        
+        try:
+            result = subprocess.run(
+                [sys.executable, str(self.pipeline_dir / "scripts" / "assethunter.py"), "--date", date_str],
+                capture_output=True, text=True, timeout=120
+            )
+            print(result.stdout)
+            if result.stderr:
+                print(result.stderr)
+            return result.returncode == 0
+        except Exception as e:
+            print(f"[Maestro] AssetHunter failed: {e}")
+            return False
+    
+    def _trigger_handoff(self, date_str: str):
+        """Trigger HandoffAssembler for complete package."""
+        print(f"[Maestro] Triggering HandoffAssembler for {date_str}...")
+        
+        try:
+            result = subprocess.run(
+                [sys.executable, str(self.pipeline_dir / "scripts" / "handoff_assembler.py"), "--date", date_str],
+                capture_output=True, text=True, timeout=60
+            )
+            print(result.stdout)
+            if result.stderr:
+                print(result.stderr)
+            return result.returncode == 0
+        except Exception as e:
+            print(f"[Maestro] HandoffAssembler failed: {e}")
+            return False
     
     def run_pipeline(self, date_str: Optional[str] = None, skip_scout: bool = False) -> Dict:
         """Run full pipeline."""
