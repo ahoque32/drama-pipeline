@@ -1,0 +1,20 @@
+# === DRAMA PIPELINE SCHEDULE BEGIN ===
+# Drama Pipeline Automated Schedule
+# Timezone: EST
+
+# 08:00 EST - Full pipeline run (Scout → Script → Approval)
+0 8 * * * cd /Users/Anton/.openclaw/agents/dante-agent/projects/drama-pipeline && /Users/Anton/.pyenv/versions/3.11.0/bin/python scripts/drama_maestro.py --daily >> logs/cron-pipeline.log 2>&1
+
+# Every 2 hours (08:00-22:00) - ScoutDrama scan for breaking news
+0 8,10,12,14,16,18,20,22 * * * cd /Users/Anton/.openclaw/agents/dante-agent/projects/drama-pipeline && /Users/Anton/.pyenv/versions/3.11.0/bin/python scripts/scout_drama.py >> logs/cron-scout.log 2>&1
+
+# 22:00 EST - Daily summary report
+0 22 * * * cd /Users/Anton/.openclaw/agents/dante-agent/projects/drama-pipeline && /Users/Anton/.pyenv/versions/3.11.0/bin/python scripts/daily_summary.py >> logs/cron-summary.log 2>&1
+
+# 12:00 EST - Retention check (T+24h after publish)
+0 12 * * * cd /Users/Anton/.openclaw/agents/dante-agent/projects/drama-pipeline && /Users/Anton/.pyenv/versions/3.11.0/bin/python scripts/retention_watcher.py --date $(date -v-1d +\%Y-\%m-\%d) >> logs/cron-retention.log 2>&1
+
+# 09:00 Sundays - Weekly performance report
+0 9 * * 0 cd /Users/Anton/.openclaw/agents/dante-agent/projects/drama-pipeline && /Users/Anton/.pyenv/versions/3.11.0/bin/python scripts/retention_watcher.py --weekly-report >> logs/cron-weekly.log 2>&1
+
+# === DRAMA PIPELINE SCHEDULE END ===
