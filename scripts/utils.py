@@ -7,73 +7,35 @@ import json
 import os
 import re
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
 def get_pipeline_dir():
     """Get the pipeline root directory."""
-    return Path.home() / ".openclaw/agents/dante-agent/projects/drama-pipeline"
+    return Path(__file__).resolve().parent.parent
 
 
 def load_config():
     """Load configuration from config.yaml or env vars."""
-    import json
+    import yaml
     
     config_path = get_pipeline_dir() / "config.yaml"
     
-    # Simple YAML parser for our config format
     config = {}
     if config_path.exists():
-        content = config_path.read_text()
-        current_section = None
-        current_list = None
-        
-        for line in content.split('\n'):
-            line = line.rstrip()
-            if not line or line.startswith('#'):
-                continue
-            
-            # Section header
-            if line.endswith(':') and not line.startswith(' ') and not line.startswith('-'):
-                current_section = line[:-1]
-                config[current_section] = {}
-                current_list = None
-                continue
-            
-            # List item under section
-            if line.strip().startswith('- ') and current_section:
-                key_val = line.strip()[2:]
-                if ': ' in key_val:
-                    key, val = key_val.split(': ', 1)
-                    if current_section not in config:
-                        config[current_section] = {}
-                    if isinstance(config[current_section], dict):
-                        if key not in config[current_section]:
-                            config[current_section][key] = []
-                        config[current_section][key].append(val)
-                continue
-            
-            # Key-value in section
-            if ': ' in line and current_section and isinstance(config.get(current_section), dict):
-                indent = len(line) - len(line.lstrip())
-                if indent == 2:  # Sub-key
-                    key, val = line.strip().split(': ', 1)
-                    config[current_section][key] = val
-                continue
-            
-            # Top-level key-value
-            if ': ' in line and not line.startswith(' '):
-                key, val = line.split(': ', 1)
-                config[key] = val
+        with open(config_path) as f:
+            config = yaml.safe_load(f) or {}
     
-    # Override with env vars
+    # Resolve env var placeholders
     if 'x_api' in config and isinstance(config['x_api'], dict):
-        config['x_api']['bearer_token'] = os.environ.get('X_BEARER_TOKEN', 
-            config['x_api'].get('bearer_token', '${X_BEARER_TOKEN}'))
+        token = config['x_api'].get('bearer_token', '')
+        if token.startswith('${'):
+            config['x_api']['bearer_token'] = os.environ.get('X_BEARER_TOKEN', '')
     if 'anthropic' in config and isinstance(config['anthropic'], dict):
-        config['anthropic']['api_key'] = os.environ.get('ANTHROPIC_API_KEY',
-            config['anthropic'].get('api_key', '${ANTHROPIC_API_KEY}'))
+        key = config['anthropic'].get('api_key', '')
+        if key.startswith('${'):
+            config['anthropic']['api_key'] = os.environ.get('ANTHROPIC_API_KEY', '')
     
     return config
 
@@ -167,7 +129,7 @@ def estimate_duration(text, wpm=170):
 def log_operation(module, action, status, details=None):
     """Log pipeline operation."""
     log_entry = {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "module": module,
         "action": action,
         "status": status,

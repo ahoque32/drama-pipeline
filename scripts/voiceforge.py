@@ -9,7 +9,7 @@ import os
 import sys
 import time
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -89,7 +89,7 @@ class VoiceForge:
             "voice": self.voice_id,
             "status": "pending",
             "target_duration_sec": len(line_text.split()) / (self.target_pace_wpm / 60),
-            "created_at": datetime.utcnow().isoformat() + "Z"
+            "created_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
         
         meta_file = segments_dir / f"line-{line_num}.json"
@@ -241,7 +241,7 @@ class VoiceForge:
             "combined_audio": str(combined_file) if combined_file.exists() else None,
             "segment_paths": [str(output_dir / "segments" / f"line-{i}.mp3") for i in range(1, 9)],
             "validation": validation,
-            "created_at": datetime.utcnow().isoformat() + "Z"
+            "created_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
         
         metadata_file = output_dir / "voiceover.json"

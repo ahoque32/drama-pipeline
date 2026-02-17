@@ -10,7 +10,7 @@ import sys
 import time
 import subprocess
 import traceback
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Callable, Any, Tuple
 from functools import wraps
@@ -146,7 +146,7 @@ class ErrorRecovery:
         errors = self._load_error_log()
         
         error_entry = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             'module': module,
             'operation': operation,
             'error': str(error),
@@ -177,11 +177,11 @@ class ErrorRecovery:
     def add_to_dead_letter(self, job: Dict, reason: str, stage: str):
         """Add a failed job to the dead letter queue for later retry."""
         dl_entry = {
-            'id': f"{stage}_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}_{len(self.dead_letter_queue)}",
+            'id': f"{stage}_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{len(self.dead_letter_queue)}",
             'stage': stage,
             'job': job,
             'reason': reason,
-            'failed_at': datetime.utcnow().isoformat() + 'Z',
+            'failed_at': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             'retry_count': 0,
             'max_retries': 3,
             'status': 'pending'
@@ -217,7 +217,7 @@ class ErrorRecovery:
         
         for job in pending:
             job['retry_count'] += 1
-            job['last_retry'] = datetime.utcnow().isoformat() + 'Z'
+            job['last_retry'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             
             try:
                 # Route to appropriate handler based on stage
@@ -225,7 +225,7 @@ class ErrorRecovery:
                 
                 if success:
                     job['status'] = 'completed'
-                    job['completed_at'] = datetime.utcnow().isoformat() + 'Z'
+                    job['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
                     results['succeeded'] += 1
                     results['details'].append({'id': job['id'], 'status': 'success'})
                 else:
@@ -278,7 +278,7 @@ class ErrorRecovery:
     
     def _cleanup_dead_letter_queue(self):
         """Remove old completed jobs from DLQ."""
-        cutoff = datetime.utcnow() - timedelta(days=7)
+        cutoff = datetime.now(timezone.utc) - timedelta(days=7)
         
         def is_recent(job):
             if job['status'] != 'completed':
@@ -341,7 +341,7 @@ class ErrorRecovery:
             # Check if enough time has passed to try half-open
             if last_failure:
                 last = datetime.fromisoformat(last_failure.replace('Z', '+00:00'))
-                if datetime.utcnow() - last > timedelta(seconds=self.CIRCUIT_RESET_TIMEOUT):
+                if datetime.now(timezone.utc) - last > timedelta(seconds=self.CIRCUIT_RESET_TIMEOUT):
                     # Transition to half-open
                     self.circuit_states[service] = {
                         'state': CircuitState.HALF_OPEN.value,
@@ -374,14 +374,14 @@ class ErrorRecovery:
         
         state = self.circuit_states[service]
         state['consecutive_failures'] = state.get('consecutive_failures', 0) + 1
-        state['last_failure'] = datetime.utcnow().isoformat() + 'Z'
+        state['last_failure'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         state['last_error'] = str(error)
         state['error_type'] = error_type or 'Unknown'
         
         # Check if we should open the circuit
         if state['consecutive_failures'] >= self.CIRCUIT_FAILURE_THRESHOLD:
             state['state'] = CircuitState.OPEN.value
-            state['opened_at'] = datetime.utcnow().isoformat() + 'Z'
+            state['opened_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             
             self._send_alert(
                 f"🔴 <b>CIRCUIT BREAKER OPEN</b>\n"
@@ -431,7 +431,7 @@ class ErrorRecovery:
             'consecutive_failures': 0,
             'half_open_calls': 0,
             'half_open_successes': 0,
-            'closed_at': datetime.utcnow().isoformat() + 'Z',
+            'closed_at': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             'previous_failures': old_failures
         }
         self._save_circuit_states()
@@ -707,7 +707,7 @@ class ErrorRecovery:
                 'failed': dlq_failed,
                 'total': len(self.dead_letter_queue)
             },
-            'checked_at': datetime.utcnow().isoformat() + 'Z'
+            'checked_at': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
     
     def generate_health_report(self) -> str:
@@ -764,7 +764,7 @@ class ErrorRecovery:
             'consecutive_failures': 0,
             'half_open_calls': 0,
             'half_open_successes': 0,
-            'reset_at': datetime.utcnow().isoformat() + 'Z',
+            'reset_at': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             'previous_state': old_state
         }
         self._save_circuit_states()

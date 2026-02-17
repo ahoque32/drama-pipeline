@@ -8,7 +8,7 @@ import json
 import os
 import sys
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 import urllib.request
@@ -66,7 +66,7 @@ class TelegramBot:
             "script": script,
             "date": date_str,
             "index": index,
-            "registered_at": datetime.utcnow().isoformat() + "Z",
+            "registered_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "status": "pending"
         }
         
@@ -193,7 +193,7 @@ class TelegramBot:
         state["history"].append({
             "action": "approve",
             "script_id": script.get('seed_id'),
-            "timestamp": datetime.utcnow().isoformat() + "Z"
+            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         })
         self.save_pending_approvals(state)
         
@@ -229,7 +229,7 @@ class TelegramBot:
         state["history"].append({
             "action": "kill",
             "script_id": script.get('seed_id'),
-            "timestamp": datetime.utcnow().isoformat() + "Z"
+            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         })
         self.save_pending_approvals(state)
         
@@ -246,7 +246,7 @@ class TelegramBot:
         
         # Update state to mark as awaiting edit
         state["pending"][message_id]["status"] = "awaiting_edit"
-        state["pending"][message_id]["edit_requested_at"] = datetime.utcnow().isoformat() + "Z"
+        state["pending"][message_id]["edit_requested_at"] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         self.save_pending_approvals(state)
         
         # Send edit instructions
@@ -311,7 +311,7 @@ class TelegramBot:
         state["history"].append({
             "action": "rewrite",
             "script_id": script.get('seed_id'),
-            "timestamp": datetime.utcnow().isoformat() + "Z"
+            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         })
         self.save_pending_approvals(state)
         

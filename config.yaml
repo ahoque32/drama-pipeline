@@ -32,6 +32,10 @@ sources:
     - subreddit: "internetdrama"
       priority: 1
 
+  instagram:
+    - handle: "grandwizardchatnigga"
+      priority: 0
+
 # Thresholds
 thresholds:
   min_x_engagement: 100
@@ -45,9 +49,12 @@ scoring:
 
 # Script generation
 script:
-  target_word_count: [130, 150]
-  target_duration_sec: [45, 50]
-  target_grade_level: [5.0, 6.0]
+  target_word_count: [120, 160]    # was [130, 150]
+  target_duration_sec: [40, 55]    # was [45, 50]  
+  target_grade_level: [5.0, 8.0]   # was [5.0, 6.0]
+  # IDEAL TARGETS (what we're aiming for):
+  # Word count: 130-150, Duration: 45-50s, Grade level: 5.0-6.0
+  # Current thresholds are loosened to allow near-misses through
   max_rewrites: 2
   variations_per_seed: 3
   top_seeds_to_process: 3

@@ -9,7 +9,7 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 import urllib.request
@@ -18,6 +18,7 @@ import urllib.error
 # Add parent to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_pipeline_dir, load_config, log_operation
+from scout_instagram import fetch_all_instagram_posts
 
 
 class ScoutDrama:
@@ -49,7 +50,7 @@ class ScoutDrama:
             return []
         
         # Calculate 24h ago in ISO format
-        start_time = (datetime.utcnow() - timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        start_time = (datetime.now(timezone.utc) - timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
         
         url = f"https://api.twitter.com/2/users/{user_id}/tweets?max_results=10&tweet.fields=created_at,public_metrics,text&start_time={start_time}"
         
@@ -145,9 +146,9 @@ class ScoutDrama:
                 post_time = datetime.fromisoformat(created_at.replace('Z', '+00:00')).replace(tzinfo=None)
             else:
                 # Unix timestamp from Reddit
-                post_time = datetime.utcfromtimestamp(created_at)
+                post_time = datetime.fromtimestamp(created_at, tz=timezone.utc).replace(tzinfo=None)
             
-            age_hours = (datetime.utcnow() - post_time).total_seconds() / 3600
+            age_hours = (datetime.now(timezone.utc) - post_time).total_seconds() / 3600
             
             if age_hours < 2:
                 return 10  # Breaking
@@ -324,7 +325,7 @@ class ScoutDrama:
                 "story_extractable": len(headline) > 20,
                 "passed": False  # Set after all validations
             },
-            "created_at": datetime.utcnow().isoformat() + "Z"
+            "created_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
         
         return seed
@@ -367,7 +368,7 @@ class ScoutDrama:
     
     def run(self) -> Dict:
         """Run full ScoutDrama scan."""
-        start_time = datetime.utcnow()
+        start_time = datetime.now(timezone.utc)
         print(f"[ScoutDrama] Starting scan at {start_time.isoformat()}Z")
         
         all_posts = []
@@ -384,6 +385,10 @@ class ScoutDrama:
             posts = self.fetch_reddit_posts(source['subreddit'])
             all_posts.extend([{**p, '_type': 'reddit'} for p in posts])
         
+        # Fetch from Instagram sources
+        ig_posts = fetch_all_instagram_posts(self.config)
+        all_posts.extend(ig_posts)
+        
         print(f"[ScoutDrama] Total posts fetched: {len(all_posts)}")
         
         # Create and validate seed cards
@@ -399,14 +404,15 @@ class ScoutDrama:
         seeds.sort(key=lambda x: x['priority_score'], reverse=True)
         
         # Build output
-        scan_duration = (datetime.utcnow() - start_time).total_seconds()
+        scan_duration = (datetime.now(timezone.utc) - start_time).total_seconds()
         
         output = {
             "date": datetime.now().strftime("%Y-%m-%d"),
-            "scan_timestamp": start_time.isoformat() + "Z",
+            "scan_timestamp": start_time.isoformat().replace("+00:00", "Z"),
             "source_stats": {
                 "x_tweets_fetched": len([p for p in all_posts if p['_type'] == 'x']),
                 "reddit_posts_fetched": len([p for p in all_posts if p['_type'] == 'reddit']),
+                "instagram_posts_fetched": len([p for p in all_posts if p['_type'] == 'instagram']),
                 "rss_items_fetched": 0
             },
             "seeds": seeds,
@@ -449,6 +455,7 @@ class ScoutDrama:
             "## Source Stats",
             f"- X/Twitter: {output['source_stats']['x_tweets_fetched']} tweets",
             f"- Reddit: {output['source_stats']['reddit_posts_fetched']} posts",
+            f"- Instagram: {output['source_stats']['instagram_posts_fetched']} posts",
             "",
             "## Top Seeds",
             ""

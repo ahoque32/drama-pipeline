@@ -7,7 +7,7 @@ Tracks Claude calls, token usage, daily/weekly reports, alerts
 import json
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import urllib.request
@@ -89,7 +89,7 @@ class CostTracker:
         
         # Build entry
         entry = {
-            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "model": model,
             "operation": operation,
             "video_id": video_id,
@@ -134,7 +134,7 @@ class CostTracker:
         estimated_output = (variations + rewrites) * 400
         
         entry = {
-            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "model": "claude-sonnet-4-20250514",
             "operation": "script_generation",
             "video_id": seed_id,

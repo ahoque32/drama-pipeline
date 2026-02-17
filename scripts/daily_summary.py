@@ -8,7 +8,7 @@ import json
 import os
 import sys
 import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 import urllib.request
@@ -170,7 +170,7 @@ class DailySummary:
         
         summary = {
             "date": date_str,
-            "generated_at": datetime.utcnow().isoformat() + "Z",
+            "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "seeds": seeds_data,
             "scripts": scripts_data,
             "approved": approved_data,
@@ -314,7 +314,7 @@ class DailySummary:
     def run(self, date_str: Optional[str] = None, send_telegram: bool = True) -> Dict:
         """Generate and send daily summary."""
         print(f"\n{'='*60}")
-        print(f"📊 DAILY SUMMARY - {datetime.utcnow().isoformat()}Z")
+        print(f"📊 DAILY SUMMARY - {datetime.now(timezone.utc).isoformat()}Z")
         print(f"{'='*60}\n")
         
         # Generate summary

@@ -1,0 +1,146 @@
+{
+  "date": "2026-02-17",
+  "scan_timestamp": "2026-02-17T07:02:00.701485Z",
+  "source_stats": {
+    "x_tweets_fetched": 20,
+    "reddit_posts_fetched": 20,
+    "instagram_posts_fetched": 0,
+    "rss_items_fetched": 0
+  },
+  "seeds": [
+    {
+      "id": "seed-20260217-20235040",
+      "headline": "Viral TikToker \u201cLil G\u201d shows off his new girlfriend on Valentine\u2019s Day after his ex and baby mama cheated on him despite them having 3 kids together. https://t.co/ppYFNkTmLK",
+      "source_urls": [
+        "https://x.com/FearedBuck/status/2023504025656979489"
+      ],
+      "source": "@FearedBuck",
+      "conflict_level": 8,
+      "viral_potential": 10,
+      "emotional_trigger": "betrayal",
+      "time_sensitivity": "low",
+      "key_figures": [
+        "Viral",
+        "Lil",
+        "Valentine",
+        "Day"
+      ],
+      "narrative_angle": "A story about Viral TikToker \u201cLil G\u201d shows off his new girlfriend on Valentine\u2019s Day after his ex and baby mama ch... that evokes betrayal.",
+      "risk_level": "low",
+      "risk_notes": "",
+      "context": "Viral TikToker \u201cLil G\u201d shows off his new girlfriend on Valentine\u2019s Day after his ex and baby mama cheated on him despite them having 3 kids together. https://t.co/ppYFNkTmLK",
+      "screenshots": [],
+      "raw_clips": [],
+      "engagement": 33168,
+      "priority_score": 6.7,
+      "validation_gate": {
+        "proof_of_concept": true,
+        "emotional_trigger_identified": true,
+        "visual_appeal": true,
+        "broad_audience": true,
+        "story_extractable": true,
+        "passed": true
+      },
+      "created_at": "2026-02-17T07:02:07.743819Z"
+    },
+    {
+      "id": "seed-20260217-20235186",
+      "headline": "The Dor Brothers made a \u201cmovie\u201d in a day using only AI, calling it a \u201c$200,000,000\u201d type movie \n https://t.co/KUltX4Dmrl",
+      "source_urls": [
+        "https://x.com/FearedBuck/status/2023518608664785265"
+      ],
+      "source": "@FearedBuck",
+      "conflict_level": 5,
+      "viral_potential": 6,
+      "emotional_trigger": "outrage",
+      "time_sensitivity": "low",
+      "key_figures": [
+        "The Dor Brothers"
+      ],
+      "narrative_angle": "A story about The Dor Brothers made a \u201cmovie\u201d in a day using only AI, calling it a \u201c$200,000,000\u201d type movie \n htt... that evokes outrage.",
+      "risk_level": "low",
+      "risk_notes": "",
+      "context": "The Dor Brothers made a \u201cmovie\u201d in a day using only AI, calling it a \u201c$200,000,000\u201d type movie \n https://t.co/KUltX4Dmrl",
+      "screenshots": [],
+      "raw_clips": [],
+      "engagement": 2417,
+      "priority_score": 4.2,
+      "validation_gate": {
+        "proof_of_concept": true,
+        "emotional_trigger_identified": true,
+        "visual_appeal": true,
+        "broad_audience": true,
+        "story_extractable": true,
+        "passed": true
+      },
+      "created_at": "2026-02-17T07:02:07.743769Z"
+    },
+    {
+      "id": "seed-20260217-1nk2i7r",
+      "headline": "Full video of the monologue Jimmy Kimmel got cancelled for",
+      "source_urls": [
+        "https://reddit.com/r/entertainment/comments/1nk2i7r/full_video_of_the_monologue_jimmy_kimmel_got/"
+      ],
+      "source": "r/entertainment",
+      "conflict_level": 3,
+      "viral_potential": 4,
+      "emotional_trigger": "outrage",
+      "time_sensitivity": "low",
+      "key_figures": [
+        "Full",
+        "Jimmy Kimmel"
+      ],
+      "narrative_angle": "A story about Full video of the monologue Jimmy Kimmel got cancelled for... that evokes outrage.",
+      "risk_level": "low",
+      "risk_notes": "",
+      "context": "Full video of the monologue Jimmy Kimmel got cancelled for ",
+      "screenshots": [],
+      "raw_clips": [],
+      "engagement": 660,
+      "priority_score": 2.8,
+      "validation_gate": {
+        "proof_of_concept": true,
+        "emotional_trigger_identified": true,
+        "visual_appeal": true,
+        "broad_audience": true,
+        "story_extractable": true,
+        "passed": true
+      },
+      "created_at": "2026-02-17T07:02:07.743924Z"
+    },
+    {
+      "id": "seed-20260217-1r694pp",
+      "headline": "What's the deal with Spotify boycotts?",
+      "source_urls": [
+        "https://reddit.com/r/OutOfTheLoop/comments/1r694pp/whats_the_deal_with_spotify_boycotts/"
+      ],
+      "source": "r/OutOfTheLoop",
+      "conflict_level": 3,
+      "viral_potential": 4,
+      "emotional_trigger": "outrage",
+      "time_sensitivity": "low",
+      "key_figures": [
+        "Spotify"
+      ],
+      "narrative_angle": "A story about What's the deal with Spotify boycotts?... that evokes outrage.",
+      "risk_level": "low",
+      "risk_notes": "",
+      "context": "What's the deal with Spotify boycotts? I have seen protests and boycotts over Spotify and didn't understand the core reason \n\nhttps://www.theguardian.com/technology/2025/oct/12/spotify-boycott-artists",
+      "screenshots": [],
+      "raw_clips": [],
+      "engagement": 653,
+      "priority_score": 2.8,
+      "validation_gate": {
+        "proof_of_concept": true,
+        "emotional_trigger_identified": true,
+        "visual_appeal": true,
+        "broad_audience": true,
+        "story_extractable": true,
+        "passed": true
+      },
+      "created_at": "2026-02-17T07:02:07.744467Z"
+    }
+  ],
+  "filtered_count": 36,
+  "scan_duration_sec": 7.04
+}

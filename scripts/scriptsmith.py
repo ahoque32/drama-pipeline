@@ -8,7 +8,7 @@ import json
 import os
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import urllib.request
@@ -63,6 +63,14 @@ Line 8 - SUB INCENTIVE (6-14 words): CTA tied directly to story content. Fast, p
 10. NO hashtags, NO emojis
 11. Every sentence pushes story forward
 
+## WRITING STYLE INSTRUCTIONS
+
+- "Write at a 5th grade reading level. Use short, punchy sentences."
+- "Use simple everyday words. No complex vocabulary."
+- "Each line should be 1-2 sentences max."
+- "Write like you're telling a friend a crazy story — casual, dramatic, easy to follow."
+- "Target exactly 8 lines, 130-150 words, 45-50 seconds when read aloud at 170 WPM."
+
 ## OUTPUT FORMAT
 
 Return ONLY a JSON object:
@@ -85,12 +93,12 @@ Return ONLY a JSON object:
         
         # Script settings
         script_config = self.config.get('script', {})
-        self.target_word_count = [130, 150]
-        self.target_duration = [45, 50]
-        self.target_grade = [5.0, 6.0]
-        self.max_rewrites = 2
-        self.variations_per_seed = 3
-        self.top_seeds = 3
+        self.target_word_count = script_config.get('target_word_count', [120, 160])
+        self.target_duration = script_config.get('target_duration_sec', [40, 55])
+        self.target_grade = script_config.get('target_grade_level', [5.0, 8.0])
+        self.max_rewrites = script_config.get('max_rewrites', 2)
+        self.variations_per_seed = script_config.get('variations_per_seed', 3)
+        self.top_seeds = script_config.get('top_seeds_to_process', 3)
         
         # API key
         self.api_key = get_anthropic_api_key()
@@ -164,7 +172,7 @@ Generate the 8-line script following the formula exactly."""
         }
         
         data = {
-            "model": "claude-3-sonnet-20240229",
+            "model": "claude-sonnet-4-20250514",
             "max_tokens": max_tokens,
             "system": self.SYSTEM_PROMPT,
             "messages": [{"role": "user", "content": prompt}]
@@ -412,7 +420,7 @@ Return ONLY the JSON object with the corrected script."""
     
     def run(self, date_str: Optional[str] = None) -> Dict:
         """Run full ScriptSmith generation."""
-        start_time = datetime.utcnow()
+        start_time = datetime.now(timezone.utc)
         print(f"[ScriptSmith] Starting generation at {start_time.isoformat()}Z")
         
         if date_str is None:
@@ -441,14 +449,14 @@ Return ONLY the JSON object with the corrected script."""
         all_scripts.sort(key=lambda x: (not x.get('quality_passed'), -x.get('hook_strength', 0)))
         
         # Build output
-        duration = (datetime.utcnow() - start_time).total_seconds()
+        duration = (datetime.now(timezone.utc) - start_time).total_seconds()
         
         passing = [s for s in all_scripts if s.get('quality_passed')]
         failing = [s for s in all_scripts if not s.get('quality_passed')]
         
         output = {
             "date": date_str,
-            "generated_at": start_time.isoformat() + "Z",
+            "generated_at": start_time.isoformat().replace("+00:00", "Z"),
             "seed_count": len(seeds),
             "script_count": len(all_scripts),
             "scripts": all_scripts,

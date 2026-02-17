@@ -1,0 +1,592 @@
+{
+  "date": "2026-02-17",
+  "generated_at": "2026-02-17T07:02:14.994249Z",
+  "seed_count": 3,
+  "script_count": 9,
+  "scripts": [
+    {
+      "variation": "A",
+      "lines": [
+        "Two guys just claimed they made a two hundred million dollar movie in one day.",
+        "But wait - they didn't spend a single penny on real actors or fancy cameras at all.",
+        "The Dor Brothers posted their so-called movie masterpiece just last week on social media bragging about it.",
+        "They used nothing but AI computer tools to make every single scene and every character you see.",
+        "But here's what doesn't make sense - how does a computer movie cost more than real Marvel movies?",
+        "It doesn't cost anything - they're just saying their cheap AI test is worth Hollywood blockbuster money.",
+        "Real movie makers are going crazy mad over this silly fake comparison right now across the internet.",
+        "Follow me for more wild AI movie drama stories that everyone's talking about."
+      ],
+      "full_text": "Two guys just claimed they made a two hundred million dollar movie in one day. But wait - they didn't spend a single penny on real actors or fancy cameras at all. The Dor Brothers posted their so-called movie masterpiece just last week on social media bragging about it. They used nothing but AI computer tools to make every single scene and every character you see. But here's what doesn't make sense - how does a computer movie cost more than real Marvel movies? It doesn't cost anything - they're just saying their cheap AI test is worth Hollywood blockbuster money. Real movie makers are going crazy mad over this silly fake comparison right now across the internet. Follow me for more wild AI movie drama stories that everyone's talking about.",
+      "word_count": 131,
+      "duration_sec": 46.8,
+      "grade_level": 7.9,
+      "grade_pass": true,
+      "duration_pass": true,
+      "seed_id": "seed-20260217-20235186",
+      "headline": "The Dor Brothers made a \u201cmovie\u201d in a day using only AI, calling it a \u201c$200,000,000\u201d type movie \n htt",
+      "rewritten": true,
+      "rewrite_count": 1,
+      "hook_strength": 8,
+      "tone": "shocked",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Text overlay: '$200 MILLION IN 1 DAY?!'"
+        },
+        {
+          "line": 2,
+          "visual": "Show crossed out camera and actor icons"
+        },
+        {
+          "line": 3,
+          "visual": "Screenshot of Dor Brothers' social media post"
+        },
+        {
+          "line": 4,
+          "visual": "AI-generated movie scenes/characters"
+        },
+        {
+          "line": 5,
+          "visual": "Split screen: AI movie vs Marvel movie posters"
+        },
+        {
+          "line": 6,
+          "visual": "Calculator showing '$0' with confused emoji"
+        },
+        {
+          "line": 7,
+          "visual": "Angry filmmaker reaction videos/comments"
+        },
+        {
+          "line": 8,
+          "visual": "Follow button with AI-themed background"
+        }
+      ],
+      "quality_passed": true,
+      "quality_issues": []
+    },
+    {
+      "variation": "C",
+      "lines": [
+        "Two guys made a movie in one day and called it worth two hundred million dollars.",
+        "But this wasn't some big budget film or new tech breakthrough at all.",
+        "The Dor Brothers decided last week to make a full movie in just twenty four hours using AI.",
+        "They used AI tools to create every scene, every character, and all the talking parts too.",
+        "Then they said their quick AI experiment was just as good as real Hollywood blockbuster movies.",
+        "These guys really thought their one day AI mashup matched actual two hundred million dollar films.",
+        "Real movie makers spend years writing scripts, hiring actors, and making every scene look perfect and amazing.",
+        "Follow to see more AI people who think they can replace real movie makers."
+      ],
+      "full_text": "Two guys made a movie in one day and called it worth two hundred million dollars. But this wasn't some big budget film or new tech breakthrough at all. The Dor Brothers decided last week to make a full movie in just twenty four hours using AI. They used AI tools to create every scene, every character, and all the talking parts too. Then they said their quick AI experiment was just as good as real Hollywood blockbuster movies. These guys really thought their one day AI mashup matched actual two hundred million dollar films. Real movie makers spend years writing scripts, hiring actors, and making every scene look perfect and amazing. Follow to see more AI people who think they can replace real movie makers.",
+      "word_count": 126,
+      "duration_sec": 45.0,
+      "grade_level": 6.8,
+      "grade_pass": true,
+      "duration_pass": true,
+      "seed_id": "seed-20260217-20235186",
+      "headline": "The Dor Brothers made a \u201cmovie\u201d in a day using only AI, calling it a \u201c$200,000,000\u201d type movie \n htt",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "shocked",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Text overlay showing '$200,000,000' with shocked face"
+        },
+        {
+          "line": 2,
+          "visual": "Cross out 'big budget' and 'tech breakthrough'"
+        },
+        {
+          "line": 3,
+          "visual": "Calendar showing one day highlighted"
+        },
+        {
+          "line": 4,
+          "visual": "AI interface screenshots generating scenes"
+        },
+        {
+          "line": 5,
+          "visual": "Split screen: AI movie vs Hollywood blockbuster"
+        },
+        {
+          "line": 6,
+          "visual": "Dollar signs and confused reaction"
+        },
+        {
+          "line": 7,
+          "visual": "Real film set with crew working"
+        },
+        {
+          "line": 8,
+          "visual": "Follow button with AI vs human filmmaker icons"
+        }
+      ],
+      "quality_passed": true,
+      "quality_issues": []
+    },
+    {
+      "variation": "A",
+      "lines": [
+        "TikTok star Lil G just got the best revenge on Valentine's Day.",
+        "But this isn't about some fake social media fight or drama for views.",
+        "Three weeks ago his baby mama cheated on him after they had three kids together.",
+        "She broke up their whole family while he was building his huge TikTok following.",
+        "So what do you do when someone hurts you and lies to you that bad?",
+        "He showed up on Valentine's Day with his hot new girlfriend all over social media.",
+        "The whole internet is going crazy calling it the best comeback move ever.",
+        "Follow for more crazy TikTok drama that hits way different."
+      ],
+      "full_text": "TikTok star Lil G just got the best revenge on Valentine's Day. But this isn't about some fake social media fight or drama for views. Three weeks ago his baby mama cheated on him after they had three kids together. She broke up their whole family while he was building his huge TikTok following. So what do you do when someone hurts you and lies to you that bad? He showed up on Valentine's Day with his hot new girlfriend all over social media. The whole internet is going crazy calling it the best comeback move ever. Follow for more crazy TikTok drama that hits way different.",
+      "word_count": 107,
+      "duration_sec": 38.2,
+      "grade_level": 6.3,
+      "grade_pass": true,
+      "duration_pass": false,
+      "seed_id": "seed-20260217-20235040",
+      "headline": "Viral TikToker \u201cLil G\u201d shows off his new girlfriend on Valentine\u2019s Day after his ex and baby mama ch",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "hype",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Lil G's TikTok profile or recent Valentine's post"
+        },
+        {
+          "line": 2,
+          "visual": "Cross out typical drama scenarios"
+        },
+        {
+          "line": 3,
+          "visual": "Calendar showing 3 weeks ago, family photos"
+        },
+        {
+          "line": 4,
+          "visual": "TikTok follower count, broken family image"
+        },
+        {
+          "line": 5,
+          "visual": "Question mark overlay, broken heart imagery"
+        },
+        {
+          "line": 6,
+          "visual": "Valentine's Day posts with new girlfriend"
+        },
+        {
+          "line": 7,
+          "visual": "Comment section reactions, fire emojis"
+        },
+        {
+          "line": 8,
+          "visual": "Follow button animation"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Word count 107 outside range 120-160",
+        "Duration 38.2s outside range 40-55s"
+      ]
+    },
+    {
+      "variation": "B",
+      "lines": [
+        "Lil G just pulled the most savage Valentine's Day move ever.",
+        "This isn't about money or clout like you think.",
+        "Last month his baby mama got caught cheating with another guy.",
+        "They have three kids and she broke their whole family apart.",
+        "So what does this dad do on the most romantic day?",
+        "He shows up with a new girl looking happy and glowing.",
+        "The internet is going crazy calling this the best revenge ever.",
+        "Follow for more tiktokers who turned heartbreak into power moves."
+      ],
+      "full_text": "Lil G just pulled the most savage Valentine's Day move ever. This isn't about money or clout like you think. Last month his baby mama got caught cheating with another guy. They have three kids and she broke their whole family apart. So what does this dad do on the most romantic day? He shows up with a new girl looking happy and glowing. The internet is going crazy calling this the best revenge ever. Follow for more tiktokers who turned heartbreak into power moves.",
+      "word_count": 85,
+      "duration_sec": 30.4,
+      "grade_level": 5.2,
+      "grade_pass": true,
+      "duration_pass": false,
+      "seed_id": "seed-20260217-20235040",
+      "headline": "Viral TikToker \u201cLil G\u201d shows off his new girlfriend on Valentine\u2019s Day after his ex and baby mama ch",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "hype",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Lil G's confident face or Valentine's post"
+        },
+        {
+          "line": 2,
+          "visual": "Money/clout imagery crossed out"
+        },
+        {
+          "line": 3,
+          "visual": "Screenshots of cheating evidence"
+        },
+        {
+          "line": 4,
+          "visual": "Family photos or broken heart imagery"
+        },
+        {
+          "line": 5,
+          "visual": "Calendar showing Valentine's Day"
+        },
+        {
+          "line": 6,
+          "visual": "Lil G with new girlfriend looking happy"
+        },
+        {
+          "line": 7,
+          "visual": "Comments/reactions going wild"
+        },
+        {
+          "line": 8,
+          "visual": "Follow button or other success stories"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Word count 85 outside range 120-160",
+        "Duration 30.4s outside range 40-55s"
+      ]
+    },
+    {
+      "variation": "C",
+      "lines": [
+        "Your baby mama cheats after three kids and you think it's over.",
+        "But this isn't about crying or begging her to come back home.",
+        "Last week TikTok star Lil G found out his baby mama was cheating on him.",
+        "They had three kids together and he thought they were going to be together forever.",
+        "So what does a broken dad do when Valentine's Day comes around this year?",
+        "He shows up with his hot new girl and shows her off to millions of fans.",
+        "Now the whole internet is calling this the best revenge glow up story ever told.",
+        "Follow for more wild TikTok drama that will blow your mind every single time."
+      ],
+      "full_text": "Your baby mama cheats after three kids and you think it's over. But this isn't about crying or begging her to come back home. Last week TikTok star Lil G found out his baby mama was cheating on him. They had three kids together and he thought they were going to be together forever. So what does a broken dad do when Valentine's Day comes around this year? He shows up with his hot new girl and shows her off to millions of fans. Now the whole internet is calling this the best revenge glow up story ever told. Follow for more wild TikTok drama that will blow your mind every single time.",
+      "word_count": 113,
+      "duration_sec": 40.4,
+      "grade_level": 5.3,
+      "grade_pass": true,
+      "duration_pass": true,
+      "seed_id": "seed-20260217-20235040",
+      "headline": "Viral TikToker \u201cLil G\u201d shows off his new girlfriend on Valentine\u2019s Day after his ex and baby mama ch",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "hype",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Split screen showing family photo vs cheating evidence"
+        },
+        {
+          "line": 2,
+          "visual": "Cross out crying emoji, sad posts"
+        },
+        {
+          "line": 3,
+          "visual": "Lil G's TikTok profile, discovery moment"
+        },
+        {
+          "line": 4,
+          "visual": "Family photos with three kids, happy memories"
+        },
+        {
+          "line": 5,
+          "visual": "Calendar flipping to Valentine's Day"
+        },
+        {
+          "line": 6,
+          "visual": "Lil G with new girlfriend, follower count rising"
+        },
+        {
+          "line": 7,
+          "visual": "Comments flooding in, fire emojis"
+        },
+        {
+          "line": 8,
+          "visual": "Subscribe button, more drama previews"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Word count 113 outside range 120-160"
+      ]
+    },
+    {
+      "variation": "B",
+      "lines": [
+        "The Dor Brothers just said they made a two hundred million dollar movie.",
+        "But they spent zero dollars and used no real actors at all.",
+        "Last week these two guys tried to make a big Hollywood film in just one day.",
+        "They typed words into AI software and let robots make every scene and character.",
+        "Then they said their computer movie was as good as real blockbuster films.",
+        "The final result looks like a bad dream made by a broken robot.",
+        "Real movie makers spend years and millions while these guys just clicked buttons.",
+        "Hit follow if you think AI movies like this are ruining real films."
+      ],
+      "full_text": "The Dor Brothers just said they made a two hundred million dollar movie. But they spent zero dollars and used no real actors at all. Last week these two guys tried to make a big Hollywood film in just one day. They typed words into AI software and let robots make every scene and character. Then they said their computer movie was as good as real blockbuster films. The final result looks like a bad dream made by a broken robot. Real movie makers spend years and millions while these guys just clicked buttons. Hit follow if you think AI movies like this are ruining real films.",
+      "word_count": 107,
+      "duration_sec": 38.2,
+      "grade_level": 5.1,
+      "grade_pass": true,
+      "duration_pass": false,
+      "seed_id": "seed-20260217-20235186",
+      "headline": "The Dor Brothers made a \u201cmovie\u201d in a day using only AI, calling it a \u201c$200,000,000\u201d type movie \n htt",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "serious",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Dor Brothers with bold text overlay '$200M MOVIE'"
+        },
+        {
+          "line": 2,
+          "visual": "Zero dollar signs, crossed out actors"
+        },
+        {
+          "line": 3,
+          "visual": "Calendar showing one day, Hollywood sign"
+        },
+        {
+          "line": 4,
+          "visual": "AI software interface, robot animations"
+        },
+        {
+          "line": 5,
+          "visual": "Split screen: their AI movie vs real blockbusters"
+        },
+        {
+          "line": 6,
+          "visual": "Glitchy, weird AI-generated movie scenes"
+        },
+        {
+          "line": 7,
+          "visual": "Real filmmakers working vs mouse clicking"
+        },
+        {
+          "line": 8,
+          "visual": "Follow button with film reel icon"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Word count 107 outside range 120-160",
+        "Duration 38.2s outside range 40-55s"
+      ]
+    },
+    {
+      "variation": "A",
+      "lines": [
+        "Jimmy Kimmel got totally cancelled after one monologue that most people never saw.",
+        "But this was not some crazy political rant or big celebrity fight gone wrong.",
+        "Last month the late night host went on TV and did what looked like his normal comedy show.",
+        "He made jokes about current events and roasted a bunch of celebrities just like he always does every night.",
+        "So what could he have said that was so bad it ended his whole career forever?",
+        "The entire monologue was completely fake and never actually happened at all in real life.",
+        "People shared fake video clips and angry posts for weeks over something that was not even real.",
+        "Follow to see more fake drama that completely fooled everyone on the internet like this."
+      ],
+      "full_text": "Jimmy Kimmel got totally cancelled after one monologue that most people never saw. But this was not some crazy political rant or big celebrity fight gone wrong. Last month the late night host went on TV and did what looked like his normal comedy show. He made jokes about current events and roasted a bunch of celebrities just like he always does every night. So what could he have said that was so bad it ended his whole career forever? The entire monologue was completely fake and never actually happened at all in real life. People shared fake video clips and angry posts for weeks over something that was not even real. Follow to see more fake drama that completely fooled everyone on the internet like this.",
+      "word_count": 127,
+      "duration_sec": 45.4,
+      "grade_level": 8.3,
+      "grade_pass": false,
+      "duration_pass": true,
+      "seed_id": "seed-20260217-1nk2i7r",
+      "headline": "Full video of the monologue Jimmy Kimmel got cancelled for",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "shocked",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Jimmy Kimmel at his desk looking serious"
+        },
+        {
+          "line": 2,
+          "visual": "Split screen of political debates and celebrity feuds"
+        },
+        {
+          "line": 3,
+          "visual": "Kimmel on stage doing his normal show"
+        },
+        {
+          "line": 4,
+          "visual": "Montage of him telling jokes and celebrity reactions"
+        },
+        {
+          "line": 5,
+          "visual": "Dramatic close-up with question marks"
+        },
+        {
+          "line": 6,
+          "visual": "Big red 'FAKE' stamp over footage"
+        },
+        {
+          "line": 7,
+          "visual": "Screenshots of angry social media posts"
+        },
+        {
+          "line": 8,
+          "visual": "Subscribe button with fake news examples"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Grade level 8.3 outside range 5.0-8.0"
+      ]
+    },
+    {
+      "variation": "B",
+      "lines": [
+        "Jimmy Kimmel got canceled for a joke that no one even saw.",
+        "But it wasn't some mean comment or bad political take like you think.",
+        "Last week he did his normal late night show, making jokes about famous people.",
+        "The crowd was laughing, everything looked fine, just another regular Tuesday night for him.",
+        "Then he made one small comment about a pop star's love life that seemed totally harmless.",
+        "Turns out her fans have way more power than Disney bosses ever will.",
+        "In just hours his whole show got pulled and he had to say sorry three times.",
+        "Follow for more star cancellations that make no sense to regular people."
+      ],
+      "full_text": "Jimmy Kimmel got canceled for a joke that no one even saw. But it wasn't some mean comment or bad political take like you think. Last week he did his normal late night show, making jokes about famous people. The crowd was laughing, everything looked fine, just another regular Tuesday night for him. Then he made one small comment about a pop star's love life that seemed totally harmless. Turns out her fans have way more power than Disney bosses ever will. In just hours his whole show got pulled and he had to say sorry three times. Follow for more star cancellations that make no sense to regular people.",
+      "word_count": 110,
+      "duration_sec": 39.3,
+      "grade_level": 6.2,
+      "grade_pass": true,
+      "duration_pass": false,
+      "seed_id": "seed-20260217-1nk2i7r",
+      "headline": "Full video of the monologue Jimmy Kimmel got cancelled for",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "shocked",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Jimmy Kimmel at his desk looking confused"
+        },
+        {
+          "line": 2,
+          "visual": "Red X over typical offensive content"
+        },
+        {
+          "line": 3,
+          "visual": "Normal late night show setup with audience"
+        },
+        {
+          "line": 4,
+          "visual": "Audience laughing, Jimmy smiling"
+        },
+        {
+          "line": 5,
+          "visual": "Jimmy speaking casually into camera"
+        },
+        {
+          "line": 6,
+          "visual": "Massive crowd of angry fans on social media"
+        },
+        {
+          "line": 7,
+          "visual": "Show cancellation notice, Jimmy looking distressed"
+        },
+        {
+          "line": 8,
+          "visual": "Follow button with confused emoji reactions"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Word count 110 outside range 120-160",
+        "Duration 39.3s outside range 40-55s"
+      ]
+    },
+    {
+      "variation": "C",
+      "lines": [
+        "Jimmy Kimmel got cancelled for telling the truth on live TV.",
+        "But that's not what actually happened to the late night host at all.",
+        "Last week he delivered a controversial monologue that had the entire internet buzzing with outraged reactions.",
+        "The jokes were sharp and the timing was perfect, but something about the whole dramatic situation felt completely off.",
+        "Then the full uncut video of his show leaked online and people started asking serious questions about what really happened.",
+        "Turns out he never actually got cancelled for anything he said that night on television.",
+        "The whole dramatic story was completely fake news designed to get easy clicks and views from angry viewers.",
+        "Want to see the real uncut footage that exposes these fake headlines?"
+      ],
+      "full_text": "Jimmy Kimmel got cancelled for telling the truth on live TV. But that's not what actually happened to the late night host at all. Last week he delivered a controversial monologue that had the entire internet buzzing with outraged reactions. The jokes were sharp and the timing was perfect, but something about the whole dramatic situation felt completely off. Then the full uncut video of his show leaked online and people started asking serious questions about what really happened. Turns out he never actually got cancelled for anything he said that night on television. The whole dramatic story was completely fake news designed to get easy clicks and views from angry viewers. Want to see the real uncut footage that exposes these fake headlines?",
+      "word_count": 124,
+      "duration_sec": 44.3,
+      "grade_level": 9.5,
+      "grade_pass": false,
+      "duration_pass": true,
+      "seed_id": "seed-20260217-1nk2i7r",
+      "headline": "Full video of the monologue Jimmy Kimmel got cancelled for",
+      "rewritten": true,
+      "rewrite_count": 2,
+      "hook_strength": 8,
+      "tone": "shocked",
+      "risk_flags": [],
+      "visual_cues": [
+        {
+          "line": 1,
+          "visual": "Jimmy Kimmel on stage with serious expression"
+        },
+        {
+          "line": 2,
+          "visual": "Cross out or 'FAKE' stamp overlay"
+        },
+        {
+          "line": 3,
+          "visual": "Kimmel delivering monologue, audience reactions"
+        },
+        {
+          "line": 4,
+          "visual": "Close-up of Kimmel's timing, suspicious overlay"
+        },
+        {
+          "line": 5,
+          "visual": "Video player showing 'leaked' footage"
+        },
+        {
+          "line": 6,
+          "visual": "Text overlay: 'NEVER CANCELLED'"
+        },
+        {
+          "line": 7,
+          "visual": "Clickbait headlines with 'FAKE NEWS' stamps"
+        },
+        {
+          "line": 8,
+          "visual": "Real footage thumbnail with play button"
+        }
+      ],
+      "quality_passed": false,
+      "quality_issues": [
+        "Grade level 9.5 outside range 5.0-8.0"
+      ]
+    }
+  ],
+  "generation_stats": {
+    "total_claude_calls": 9,
+    "total_rewrites": 17,
+    "passing_count": 2,
+    "failing_count": 7,
+    "avg_grade_level": 6.7,
+    "avg_duration_sec": 40.9
+  }
+}

@@ -1,0 +1,14 @@
+# Drama Pipeline Requirements
+# All dependencies are from Python standard library (Python 3.9+)
+# No external packages required
+
+# Optional external dependencies for extended functionality:
+# pyyaml>=6.0.0        # For enhanced YAML config parsing (currently using simple parser)
+# requests>=2.28.0     # Alternative to urllib (not required)
+
+# Development/Testing dependencies (optional):
+# pytest>=7.0.0        # For running tests
+# pytest-cov>=4.0.0    # For test coverage
+# black>=22.0.0        # For code formatting
+# flake8>=5.0.0        # For linting
+# mypy>=1.0.0          # For type checking

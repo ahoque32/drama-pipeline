@@ -10,7 +10,7 @@ import sys
 import shutil
 import subprocess
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, asdict
@@ -73,7 +73,7 @@ class HealthChecker:
     
     def run_all_checks(self, quick: bool = False) -> Dict:
         """Run all health checks."""
-        self.start_time = datetime.utcnow()
+        self.start_time = datetime.now(timezone.utc)
         self.results = []
         
         # Core checks (always run)
@@ -620,11 +620,11 @@ class HealthChecker:
         # Calculate duration
         duration_ms = None
         if self.start_time:
-            duration_ms = (datetime.utcnow() - self.start_time).total_seconds() * 1000
+            duration_ms = (datetime.now(timezone.utc) - self.start_time).total_seconds() * 1000
         
         return {
             'status': overall_status,
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             'duration_ms': round(duration_ms, 2) if duration_ms else None,
             'summary': {
                 'total': len(self.results),

@@ -9,7 +9,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -124,7 +124,7 @@ class AssetHunter:
             "output_path": str(output_path),
             "status": "pending_capture",
             "instructions": "Use browser screenshot tool or manual capture",
-            "created_at": datetime.utcnow().isoformat() + "Z"
+            "created_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
         
         meta_path = output_path.with_suffix('.json')
@@ -210,7 +210,7 @@ class AssetHunter:
             "missing_assets": missing_lines,
             "editor_notes": editor_notes,
             "output_dir": str(output_dir),
-            "created_at": datetime.utcnow().isoformat() + "Z"
+            "created_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
         
         # Save manifest

@@ -8,7 +8,7 @@ import json
 import os
 import sys
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 import urllib.request
@@ -223,7 +223,7 @@ Return ONLY the JSON object."""
             "tone": raw.get('tone', 'urgent'),
             "risk_flags": [seed.get('risk_level', 'low')] if seed.get('risk_level') != 'low' else [],
             "visual_cues": raw.get('visual_cues', []),
-            "generated_at": datetime.utcnow().isoformat() + "Z"
+            "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
         
         return script
@@ -300,7 +300,7 @@ Return ONLY the JSON object."""
             "breaking_id": f"breaking-{timestamp}",
             "seed": seed,
             "script": script,
-            "detected_at": datetime.utcnow().isoformat() + "Z",
+            "detected_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "cost": self.cost_tracker,
             "auto_approved": True
         }
@@ -354,7 +354,7 @@ Return ONLY the JSON object."""
         approved_record = {
             "script": script,
             "seed": seed,
-            "approved_at": datetime.utcnow().isoformat() + "Z",
+            "approved_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "approved_by": "auto-breaking-news",
             "breaking": True
         }
@@ -439,7 +439,7 @@ Return ONLY the JSON object."""
     
     def process_breaking_news(self, date_str: Optional[str] = None) -> Dict:
         """Main entry: detect and process breaking news."""
-        start_time = datetime.utcnow()
+        start_time = datetime.now(timezone.utc)
         print(f"\n{'='*60}")
         print(f"⚡ BREAKING NEWS PROTOCOL - {start_time.isoformat()}Z")
         print(f"{'='*60}\n")
@@ -449,7 +449,7 @@ Return ONLY the JSON object."""
         
         results = {
             "date": date_str,
-            "started_at": start_time.isoformat() + "Z",
+            "started_at": start_time.isoformat().replace("+00:00", "Z"),
             "breaking_seeds_found": 0,
             "scripts_generated": 0,
             "scripts_processed": 0,
@@ -463,7 +463,7 @@ Return ONLY the JSON object."""
         
         if not breaking_seeds:
             print("[BreakingNews] No breaking news seeds found")
-            results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+            results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             return results
         
         # Process top breaking seed (only process 1 for speed)
@@ -477,7 +477,7 @@ Return ONLY the JSON object."""
         
         if not raw:
             print("[BreakingNews] Failed to generate script")
-            results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+            results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             return results
         
         script = self.parse_script(raw, seed)
@@ -499,9 +499,9 @@ Return ONLY the JSON object."""
             results['scripts_processed'] = 1
         
         # Final stats
-        duration = (datetime.utcnow() - start_time).total_seconds()
+        duration = (datetime.now(timezone.utc) - start_time).total_seconds()
         results['duration_sec'] = round(duration, 1)
-        results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+        results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         results['cost'] = self.cost_tracker
         
         print(f"\n{'='*60}")

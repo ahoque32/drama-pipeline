@@ -1,0 +1,82 @@
+[
+  {
+    "timestamp": "2026-02-17T06:31:26.649459Z",
+    "module": "ScoutDrama",
+    "action": "scan",
+    "status": "success",
+    "details": {
+      "seeds_found": 0,
+      "seeds_filtered": 0,
+      "duration_sec": 0.000148
+    }
+  },
+  {
+    "timestamp": "2026-02-17T06:32:03.127760Z",
+    "module": "ScoutDrama",
+    "action": "scan",
+    "status": "success",
+    "details": {
+      "seeds_found": 0,
+      "seeds_filtered": 0,
+      "duration_sec": 0.000139
+    }
+  },
+  {
+    "timestamp": "2026-02-17T06:33:10.875934Z",
+    "module": "ScoutDrama",
+    "action": "scan",
+    "status": "success",
+    "details": {
+      "seeds_found": 4,
+      "seeds_filtered": 36,
+      "duration_sec": 3.308384
+    }
+  },
+  {
+    "timestamp": "2026-02-17T06:39:53.961475Z",
+    "module": "ScriptSmith",
+    "action": "generate",
+    "status": "success",
+    "details": {
+      "scripts_generated": 0,
+      "scripts_passing": 0,
+      "total_rewrites": 0,
+      "duration_sec": 1.53674
+    }
+  },
+  {
+    "timestamp": "2026-02-17T06:47:00.431743Z",
+    "module": "ScriptSmith",
+    "action": "generate",
+    "status": "success",
+    "details": {
+      "scripts_generated": 9,
+      "scripts_passing": 0,
+      "total_rewrites": 18,
+      "duration_sec": 212.184712
+    }
+  },
+  {
+    "timestamp": "2026-02-17T07:02:07.746520Z",
+    "module": "ScoutDrama",
+    "action": "scan",
+    "status": "success",
+    "details": {
+      "seeds_found": 4,
+      "seeds_filtered": 36,
+      "duration_sec": 7.044141
+    }
+  },
+  {
+    "timestamp": "2026-02-17T07:05:32.665051Z",
+    "module": "ScriptSmith",
+    "action": "generate",
+    "status": "success",
+    "details": {
+      "scripts_generated": 9,
+      "scripts_passing": 2,
+      "total_rewrites": 17,
+      "duration_sec": 197.664717
+    }
+  }
+]

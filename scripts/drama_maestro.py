@@ -9,7 +9,7 @@ import json
 import os
 import sys
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Callable
 import urllib.request
@@ -337,7 +337,7 @@ class DramaMaestro:
         
         approved_record = {
             "script": script,
-            "approved_at": datetime.utcnow().isoformat() + "Z",
+            "approved_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "approved_by": "manual"
         }
         
@@ -488,7 +488,7 @@ class DramaMaestro:
         
         results = {
             "date": date_str,
-            "started_at": datetime.utcnow().isoformat() + "Z",
+            "started_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "stages": {}
         }
         
@@ -513,12 +513,12 @@ class DramaMaestro:
                 results['stages']['scout'] = 'success' if scout_ok else 'failed'
                 if not scout_ok:
                     print("[Maestro] Pipeline halted at ScoutDrama")
-                    results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+                    results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
                     return results
             except Exception as e:
                 print(f"[Maestro] ScoutDrama error: {e}")
                 results['stages']['scout'] = f'error: {str(e)[:50]}'
-                results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+                results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
                 return results
         else:
             print("[Maestro] Skipping ScoutDrama ( --skip-scout )")
@@ -530,12 +530,12 @@ class DramaMaestro:
             results['stages']['scriptsmith'] = 'success' if smith_ok else 'failed'
             if not smith_ok:
                 print("[Maestro] Pipeline halted at ScriptSmith")
-                results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+                results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
                 return results
         except Exception as e:
             print(f"[Maestro] ScriptSmith error: {e}")
             results['stages']['scriptsmith'] = f'error: {str(e)[:50]}'
-            results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+            results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             return results
         
         # Stage 3: Load passing scripts
@@ -546,12 +546,12 @@ class DramaMaestro:
             if not passing_scripts:
                 print("[Maestro] No passing scripts, pipeline complete")
                 results['stages']['approval'] = 'no_scripts'
-                results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+                results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
                 return results
         except Exception as e:
             print(f"[Maestro] Error loading scripts: {e}")
             results['stages']['approval'] = f'error: {str(e)[:50]}'
-            results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+            results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             return results
         
         # Stage 4: Send for approval
@@ -562,7 +562,7 @@ class DramaMaestro:
             print(f"[Maestro] Approval stage error: {e}")
             results['stages']['approval'] = f'error: {str(e)[:50]}'
         
-        results['completed_at'] = datetime.utcnow().isoformat() + "Z"
+        results['completed_at'] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         
         print(f"\n{'='*60}")
         print(f"Pipeline Complete - Waiting for Approval")
