@@ -1,3 +1,16 @@
 *.pyc
 __pycache__/
+
+# Pipeline output artifacts (generated daily, not source code)
+seeds/
+drafts/
+assets/
+handoffs/
+audio/
+logs/
+approved/
+state/
+
+# Secrets
 .env
+.secrets/

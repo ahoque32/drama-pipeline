@@ -19,7 +19,7 @@ import os
 import re
 import sys
 from dataclasses import dataclass, field
-from datetime import datetime, date
+from datetime import datetime, date, timedelta, timezone
 from pathlib import Path
 from typing import Optional, Callable, Dict, Any, List
 
@@ -47,6 +47,7 @@ TOKEN_PATH = CREDENTIALS_DIR / 'youtube-token.json'
 CLIENT_SECRETS_PATH = CREDENTIALS_DIR / 'youtube-client-secrets.json'
 QUOTA_PATH = CREDENTIALS_DIR / 'youtube-quota.json'
 UPLOADS_DIR = Path(__file__).parent.parent / 'uploads'
+CONFIG_PATH = Path(__file__).parent.parent / 'config.yaml'
 
 # Shorts detection
 SHORTS_ASPECT_RATIO = 9 / 16  # 0.5625
@@ -131,9 +132,38 @@ class YouTubeUploader:
         self.credentials: Optional[Credentials] = None
         self.service: Optional[Any] = None
         self.quota = QuotaTracker.load()
-        
+        self.config = self._load_config()
+
         if not self.mock_mode:
             self._authenticate()
+
+    def _load_config(self) -> Dict[str, Any]:
+        if not CONFIG_PATH.exists():
+            return {}
+        try:
+            import yaml
+            return yaml.safe_load(CONFIG_PATH.read_text()) or {}
+        except Exception:
+            return {}
+
+    def _default_publish_at_utc(self) -> Optional[str]:
+        """Default scheduled publish time from config (1 PM EST target)."""
+        yt_cfg = self.config.get('youtube', {}) if isinstance(self.config, dict) else {}
+        time_str = yt_cfg.get('publish_time_est')
+        if not time_str:
+            return None
+        try:
+            hour, minute = [int(x) for x in str(time_str).split(':', 1)]
+            now_utc = datetime.now(timezone.utc)
+            # EST fixed offset per project convention
+            est = timezone(timedelta(hours=-5))
+            now_est = now_utc.astimezone(est)
+            publish_est = now_est.replace(hour=hour, minute=minute, second=0, microsecond=0)
+            if publish_est <= now_est:
+                publish_est = publish_est + timedelta(days=1)
+            return publish_est.astimezone(timezone.utc).isoformat().replace('+00:00', 'Z')
+        except Exception:
+            return None
     
     def __enter__(self):
         return self
@@ -267,7 +297,8 @@ class YouTubeUploader:
         category_id: str = "",
         privacy_status: str = "private",
         shorts: bool = False,
-        progress_callback: Optional[Callable[[int], None]] = None
+        progress_callback: Optional[Callable[[int], None]] = None,
+        publish_at: Optional[str] = None
     ) -> UploadResult:
         """
         Upload a video to YouTube.
@@ -323,6 +354,8 @@ class YouTubeUploader:
             logger.info(f"  Title: {title}")
             logger.info(f"  Privacy: {privacy_status}")
             logger.info(f"  Shorts: {is_shorts}")
+            if effective_publish_at:
+                logger.info(f"  PublishAt (UTC): {effective_publish_at}")
             
             mock_id = f"mock_{datetime.now().strftime('%Y%m%d%H%M%S')}"
             result = UploadResult(
@@ -357,6 +390,11 @@ class YouTubeUploader:
                 'selfDeclaredMadeForKids': False
             }
         }
+
+        # If private, schedule release into 12-3 PM EST window (default 1 PM EST)
+        effective_publish_at = publish_at or self._default_publish_at_utc()
+        if privacy_status == 'private' and effective_publish_at:
+            body['status']['publishAt'] = effective_publish_at
         
         # Determine media type
         media_type, _ = mimetypes.guess_type(str(file_path_obj))
@@ -525,6 +563,7 @@ Examples:
     parser.add_argument('--shorts', '-s', action='store_true',
                         help='Force Shorts optimization')
     parser.add_argument('--thumbnail', help='Thumbnail image path')
+    parser.add_argument('--publish-at', help='RFC3339 UTC publish time (e.g., 2026-03-04T18:00:00Z). If omitted, uses config youtube.publish_time_est (default 1 PM EST).')
     parser.add_argument('--mock', action='store_true',
                         help='Run in mock mode (no actual upload)')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
@@ -548,7 +587,8 @@ Examples:
                 category_id=args.category or '',
                 privacy_status=args.privacy,
                 shorts=args.shorts,
-                progress_callback=lambda p: logger.info(f"Upload progress: {p}%")
+                progress_callback=lambda p: logger.info(f"Upload progress: {p}%"),
+                publish_at=args.publish_at
             )
             
             # Upload thumbnail if provided
